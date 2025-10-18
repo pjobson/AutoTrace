@@ -39,7 +39,24 @@ This fork includes updates to work with modern library versions:
     make
     sudo make install
 
-### Detailed Build Steps
+### Out-of-Tree Build (Recommended)
+
+To keep your source directory clean, build in a separate directory:
+
+    mkdir build
+    cd build
+    ../configure
+    make
+
+The autotrace binary will be in build/autotrace.
+
+To clean up, simply remove the build directory:
+
+    rm -rf build
+
+### In-Tree Build
+
+If you prefer to build in the source directory:
 
 1. Configure the build system:
 
