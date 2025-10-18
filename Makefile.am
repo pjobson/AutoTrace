@@ -3,9 +3,7 @@ EXTRA_DIST=$(man_MANS)						\
 input-magick.h input-magick.c input-png.c input-png.h		\
 output-pstoedit.c output-pstoedit.h				\
 autotrace-config.af autotrace-config.in				\
-autotrace.dsp autotrace.dsw					\
-autotrace.m4 shape_cubic.c.diff README.MING			\
-autotrace.sln autotrace.vcproj	\
+autotrace.m4							\
 autotrace.pc.in autotrace.spec.in TODO HACKING FAQ
 
 AUTOMAKE_OPTIONS = foreign no-dependencies

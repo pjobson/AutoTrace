@@ -10,6 +10,7 @@ bitmap.lo
 bitmap.o
 color.lo
 color.o
+compile
 config.h
 config.log
 config.status
