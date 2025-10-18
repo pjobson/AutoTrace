@@ -182,56 +182,69 @@ main (int argc, char * argv[])
 
 /* Reading the options.  */
 
-#define USAGE1 "Options:\
-<input_name> should be a supported image.\n"\
+#define USAGE1 "\n\
+Convert bitmap images to vector graphics.\n\
+\n"\
   GETOPT_USAGE								\
-"background-color <hexadezimal>: the color of the background that\n\
-  should be ignored, for example FFFFFF;\n\
-  default is no background color.\n\
-centerline: trace a character's centerline, rather than its outline.\n\
-color-count <unsigned>: number of colors a color bitmap is reduced to,\n\
-  it does not work on grayscale, allowed are 1..256;\n\
-  default is 0, that means not color reduction is done.\n\
-corner-always-threshold <angle-in-degrees>: if the angle at a pixel is\n\
-  less than this, it is considered a corner, even if it is within\n\
-  `corner-surround' pixels of another corner; default is 60.\n\
-corner-surround <unsigned>: number of pixels on either side of a\n\
-  point to consider when determining if that point is a corner;\n\
-  default is 4.\n\
-corner-threshold <angle-in-degrees>: if a pixel, its predecessor(s),\n\
-  and its successor(s) meet at an angle smaller than this, it's a\n\
-  corner; default is 100.\n\
-despeckle-level <unsigned>: 0..20; default is no despeckling.\n\
-despeckle-tightness <real>: 0.0..8.0; default is 2.0.\n\
-dpi <unsigned>: The dots per inch value in the input image, affects scaling\n\
-  of mif output image\n"
-#define USAGE2 "error-threshold <real>: subdivide fitted curves that are off by\n\
-  more pixels than this; default is 2.0.\n\
-filter-iterations <unsigned>: smooth the curve this many times\n\
-  before fitting; default is 4.\n\
-input-format:  %s. \n\
-help: print this message.\n\
-line-reversion-threshold <real>: if a spline is closer to a straight\n\
-  line than this, weighted by the square of the curve length, keep it a\n\
-  straight line even if it is a list with curves; default is .01.\n\
-line-threshold <real>: if the spline is not more than this far away\n\
-  from the straight line defined by its endpoints,\n\
-  then output a straight line; default is 1.\n\
-list-output-formats: print a list of support output formats to stderr.\n\
-list-input-formats:  print a list of support input formats to stderr.\n\
-log: write detailed progress reports to <input_name>.log.\n\
-output-file <filename>: write to <filename>\n\
-output-format <format>: use format <format> for the output file\n\
-  %s can be used.\n\
-preserve-width: whether to preserve line width prior to thinning.\n\
-remove-adjacent-corners: remove corners that are adjacent.\n\
-tangent-surround <unsigned>: number of points on either side of a\n\
-  point to consider when computing the tangent at that point; default is 3.\n\
-report-progress: report tracing status in real time.\n\
-debug-arch: print the type of cpu.\n\
-debug-bitmap: dump loaded bitmap to <input_name>.bitmap.\n\
-version: print the version number of this program.\n\
-width-weight-factor <real>: weight factor for fitting the linewidth.\n\
+"\n\
+INPUT/OUTPUT OPTIONS:\n\
+  --input-format <format>          Specify input image format\n\
+                                   Supported: %s\n\
+  --output-file <filename>         Write output to <filename>\n\
+  --output-format <format>         Specify output vector format\n\
+                                   Supported: %s\n\
+  --background-color <hex>         Background color to ignore (e.g., FFFFFF)\n\
+                                   Default: none\n\
+  --dpi <number>                   DPI value for scaling (affects MIF output)\n\
+\n\
+TRACING OPTIONS:\n\
+  --centerline                     Trace centerline instead of outline\n\
+  --preserve-width                 Preserve line width before thinning\n\
+  --color-count <number>           Reduce colors in bitmap (1-256)\n\
+                                   Does not work on grayscale\n\
+                                   Default: 0 (no reduction)\n\
+\n\
+CORNER DETECTION:\n\
+  --corner-threshold <degrees>     Angle threshold for corner detection\n\
+                                   Default: 100\n\
+  --corner-always-threshold <deg>  Force corner if angle less than this\n\
+                                   Default: 60\n\
+  --corner-surround <pixels>       Pixels to consider around a point\n\
+                                   Default: 4\n\
+  --remove-adjacent-corners        Remove adjacent corner points\n\
+\n\
+NOISE REDUCTION:\n\
+  --despeckle-level <number>       Despeckle level (0-20)\n\
+                                   Default: 0 (disabled)\n\
+  --despeckle-tightness <real>     Despeckle tightness (0.0-8.0)\n\
+                                   Default: 2.0\n\
+\n"
+#define USAGE2 "CURVE FITTING:\n\
+  --error-threshold <real>         Subdivide curves with pixel error above this\n\
+                                   Default: 2.0\n\
+  --filter-iterations <number>     Smooth curve before fitting (iterations)\n\
+                                   Default: 4\n\
+  --line-threshold <real>          Output straight line if spline within distance\n\
+                                   from endpoints line\n\
+                                   Default: 1.0\n\
+  --line-reversion-threshold <r>   Keep as straight line if spline close enough\n\
+                                   Weighted by square of curve length\n\
+                                   Default: 0.01\n\
+  --tangent-surround <pixels>      Points to consider for tangent calculation\n\
+                                   Default: 3\n\
+  --width-weight-factor <real>     Weight factor for line width fitting\n\
+\n\
+INFORMATION OPTIONS:\n\
+  --help                           Display this help message\n\
+  --version                        Show version number\n\
+  --list-input-formats             List supported input formats\n\
+  --list-output-formats            List supported output formats\n\
+\n\
+DEBUGGING OPTIONS:\n\
+  --log                            Write detailed progress to <input>.log\n\
+  --report-progress                Show real-time tracing status\n\
+  --debug-arch                     Print CPU architecture information\n\
+  --debug-bitmap                   Dump loaded bitmap to <input>.bitmap\n\
 "
 
 /* We return the name of the image to process.  */
@@ -345,14 +358,14 @@ read_command_line (int argc, char * argv[],
       else if (ARGUMENT_IS ("help"))
         {
 	  char *ishortlist, *oshortlist;
-          fprintf (stderr, "Usage: %s [options] <input_name>.\n", argv[0]);
-          fprintf (stderr, USAGE1);
-          fprintf (stderr, USAGE2, ishortlist = at_input_shortlist(),
+          fprintf (stderr, "Usage: %s [OPTIONS] <input_file>\n", argv[0]);
+          fprintf (stderr, USAGE1, ishortlist = at_input_shortlist(),
 		   oshortlist = at_output_shortlist());
+          fprintf (stderr, USAGE2);
 	  free (ishortlist);
 	  free (oshortlist);
-	  fprintf (stderr, 
-		   "\nYou can get the source code of autotrace from \n%s\n",
+	  fprintf (stderr,
+		   "\nFor more information and source code, visit:\n  %s\n",
 		   at_home_site());
           exit (0);
         }

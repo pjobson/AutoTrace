@@ -33,10 +33,10 @@
         }								\
       else								\
         {								\
-          fprintf (stderr, "Usage: %s [options] <image_name>.\n", argv[0]);\
-          fprintf (stderr, "(%s.)\n", optind == argc ? "Missing <image_name>"\
-                                      : "Too many <image_name>s");	\
-          fputs ("For more information, use ``-help''.\n", stderr);	\
+          fprintf (stderr, "Usage: %s [OPTIONS] <input_file>\n", argv[0]);\
+          fprintf (stderr, "Error: %s\n", optind == argc ? "Missing <input_file>"\
+                                      : "Too many arguments");	\
+          fputs ("For more information, use '--help'\n", stderr);	\
           exit (1);							\
         }								\
       return NULL; /* stop warnings */					\

@@ -118,7 +118,7 @@ struct _at_spline_list_array_type
 struct _at_fitting_opts_type
 {
 #define at_doc__background_color					\
-N_("background-color <hexadezimal>: the color of the background that "	\
+N_("background-color <hexidecimal>: the color of the background that "	\
 "should be ignored, for example FFFFFF; "				\
 "default is no background color.")
   at_color_type *background_color;
