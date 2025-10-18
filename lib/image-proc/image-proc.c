@@ -1,7 +1,7 @@
 /* image-proc.c: image processing routines */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <assert.h>

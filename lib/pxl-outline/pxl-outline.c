@@ -2,7 +2,7 @@
    and each pixel participates via one or more edges. */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "../message.h"

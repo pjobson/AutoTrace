@@ -1,7 +1,7 @@
 /* color.c: color handling. */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "color.h"

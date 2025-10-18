@@ -1,7 +1,7 @@
 /* xfopen.c: fopen and fclose with error checking. */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "xstd.h"

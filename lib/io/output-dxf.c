@@ -20,7 +20,7 @@
 /* mail comments and suggestions to kovar@t-online.de */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "../types.h"

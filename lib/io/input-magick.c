@@ -21,7 +21,7 @@
    it doesn't work with earlier versions */
 
 #ifdef HAVE_CONFIG_H
-#include "../../config.h"
+#include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdio.h>
