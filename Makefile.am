@@ -148,3 +148,7 @@ dist-hook: autotrace.spec
 
 rpm: dist autotrace.spec
 	rpm -bb autotrace.spec
+
+clean-local:
+	find . -name "*.lo" -exec rm -fv {} \;
+	find . -name "*.o" -exec rm -fv {} \;

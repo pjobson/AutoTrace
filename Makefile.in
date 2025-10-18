@@ -1214,7 +1214,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-binPROGRAMS clean-generic clean-libLTLIBRARIES \
-	clean-libtool mostlyclean-am
+	clean-libtool clean-local mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -1293,7 +1293,7 @@ uninstall-man: uninstall-man1
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--refresh check check-am clean \
 	clean-binPROGRAMS clean-cscope clean-generic \
-	clean-libLTLIBRARIES clean-libtool cscope cscopelist-am ctags \
+	clean-libLTLIBRARIES clean-libtool clean-local cscope cscopelist-am ctags \
 	ctags-am dist dist-all dist-bzip2 dist-gzip dist-hook \
 	dist-lzip dist-shar dist-tarZ dist-xz dist-zip dist-zstd \
 	distcheck distclean distclean-compile distclean-generic \
@@ -1327,6 +1327,10 @@ dist-hook: autotrace.spec
 
 rpm: dist autotrace.spec
 	rpm -bb autotrace.spec
+
+clean-local:
+	find . -name "*.lo" -exec rm -fv {} \;
+	find . -name "*.o" -exec rm -fv {} \;
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
