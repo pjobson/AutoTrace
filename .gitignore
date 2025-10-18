@@ -1,0 +1,15 @@
+Makefile
+autotrace-config
+autotrace.pc
+config.h
+config.log
+config.status
+input-bmp.lo
+input-bmp.o
+input-pnm.lo
+input-pnm.o
+input-tga.lo
+input-tga.o
+libtool
+stamp-h
+stamp-h1
