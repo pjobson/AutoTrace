@@ -4,7 +4,7 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include "logreport.h"
+#include "logreport/logreport.h"
 #include "types.h"
 #include <stdio.h>
 #include <stdlib.h>

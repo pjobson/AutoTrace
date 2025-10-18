@@ -265,8 +265,8 @@ libautotrace_la_LINK = $(LIBTOOL) $(AM_V_lt) \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(AM_CFLAGS) $(CFLAGS) $(libautotrace_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
-am_autotrace_OBJECTS = atou.$(OBJEXT) main.$(OBJEXT) getopt.$(OBJEXT) \
-	getopt1.$(OBJEXT)
+am_autotrace_OBJECTS = lib/atou/atou.$(OBJEXT) main.$(OBJEXT) \
+	lib/getopt/getopt.$(OBJEXT) lib/getopt/getopt1.$(OBJEXT)
 autotrace_OBJECTS = $(am_autotrace_OBJECTS)
 am__DEPENDENCIES_1 =
 autotrace_DEPENDENCIES = libautotrace.la $(am__DEPENDENCIES_1) \
@@ -284,7 +284,7 @@ AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
 am__v_at_1 =
-DEFAULT_INCLUDES = -I.@am__isrc@
+DEFAULT_INCLUDES = -I. -I$(srcdir)
 depcomp =
 am__maybe_remake_depfiles =
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \

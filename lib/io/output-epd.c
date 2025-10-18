@@ -22,9 +22,9 @@
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../../types.h"
-#include "../../spline.h"
-#include "../../color.h"
+#include "../types.h"
+#include "../spline/spline.h"
+#include "../color/color.h"
 #include "output-epd.h"
 #include "../xstd/xstd.h"
 #include "../../autotrace.h"

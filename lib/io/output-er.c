@@ -21,8 +21,8 @@
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../../types.h"
-#include "../../spline.h"
+#include "../types.h"
+#include "../spline/spline.h"
 #include "output-er.h"
 #include "../xstd/xstd.h"
 #include <time.h>

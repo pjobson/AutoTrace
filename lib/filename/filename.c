@@ -24,7 +24,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../filename.h"
+#include "filename.h"
 #include "../xstd/xstd.h"
 #include <string.h>
 

@@ -17,9 +17,9 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
    USA. */
 
-#include "bitmap.h"
-#include "color.h"
-#include "exception.h"
+#include "bitmap/bitmap.h"
+#include "color/color.h"
+#include "exception/exception.h"
 
 #ifndef QUANTIZE_H
 #define QUANTIZE_H

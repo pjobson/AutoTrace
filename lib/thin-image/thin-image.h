@@ -27,9 +27,9 @@
  * in "Graphics Gems IV", Academic Press, 1994
  */
 
-#include "../../bitmap.h"
-#include "../../color.h"
-#include "../../exception.h"
+#include "../bitmap/bitmap.h"
+#include "../color/color.h"
+#include "../exception/exception.h"
 
 void  thin_image      (bitmap_type *image, const color_type *bg_color, at_exception_type * exp);
 

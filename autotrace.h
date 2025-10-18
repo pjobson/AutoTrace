@@ -35,7 +35,7 @@ extern "C" {
  * Typedefs
  * ===================================================================== */
 
-#include "types.h"
+#include "lib/types.h"
 
 typedef struct _at_fitting_opts_type at_fitting_opts_type;
 typedef struct _at_input_opts_type   at_input_opts_type;

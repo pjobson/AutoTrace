@@ -26,8 +26,8 @@
 #include <string.h>
 /* #include <unistd.h> */
 
-#include "../../bitmap.h"
-#include "../../message.h"
+#include "../bitmap/bitmap.h"
+#include "../message.h"
 #include "../xstd/xstd.h"
 #include "input-bmp.h"
 

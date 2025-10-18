@@ -21,8 +21,8 @@
 #define OUTPUT_H
 #include <stdio.h>
 #include "../../autotrace.h"
-#include "../../types.h"
-#include "../../exception.h"
+#include "../types.h"
+#include "../exception/exception.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -30,7 +30,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include "../../spline.h"
+#include "../spline/spline.h"
 #include "../xstd/xstd.h"
 
 /* EMF record-number definitions */

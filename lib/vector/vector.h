@@ -3,8 +3,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include "../../types.h"
-#include "../../exception.h"
+#include "../types.h"
+#include "../exception/exception.h"
 
 /* Our vectors are represented as displacements along the x and y axes.  */
 

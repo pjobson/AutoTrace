@@ -19,9 +19,9 @@
 
 #ifndef INPUT_H
 #define INPUT_H
-#include "../../types.h"
+#include "../types.h"
 #include "../../autotrace.h"
-#include "../../exception.h"
+#include "../exception/exception.h"
 
 #ifdef __cplusplus
 extern "C" {

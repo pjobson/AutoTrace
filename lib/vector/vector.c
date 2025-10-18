@@ -5,8 +5,8 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "vector.h"
-#include "../../message.h"
-#include "../../epsilon-equal.h"
+#include "../message.h"
+#include "../epsilon-equal/epsilon-equal.h"
 #include <math.h>
 #include <errno.h>
 #include <assert.h>

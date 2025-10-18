@@ -23,7 +23,7 @@
 
 #include "output-fig.h"
 #include "../xstd/xstd.h"
-#include "../../color.h"
+#include "../color/color.h"
 #include "../spline/spline.h"
 
 /* use FIG_X and FIG_Y to convert from local units (pixels) to FIG ones */

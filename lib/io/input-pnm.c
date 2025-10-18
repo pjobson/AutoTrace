@@ -27,10 +27,10 @@
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../../types.h"
-#include "../../bitmap.h"
+#include "../types.h"
+#include "../bitmap/bitmap.h"
 #include "input-pnm.h"
-#include "../../message.h"
+#include "../message.h"
 #include "../xstd/xstd.h"
 
 #include <math.h>

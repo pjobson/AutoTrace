@@ -24,8 +24,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../spline.h"
-#include "../../color.h"
+#include "../spline/spline.h"
+#include "../color/color.h"
 #include "output-dr2d.h"
 
 

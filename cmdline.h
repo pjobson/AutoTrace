@@ -3,8 +3,8 @@
 #ifndef CMDLINE_H
 #define CMDLINE_H
 
-#include "getopt.h"
-#include "types.h"
+#include "lib/getopt/getopt.h"
+#include "lib/types.h"
 #include "lib/strgicmp/strgicmp.h"
 #include <string.h>
 

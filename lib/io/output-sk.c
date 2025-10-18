@@ -21,8 +21,8 @@
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../../spline.h"
-#include "../../color.h"
+#include "../spline/spline.h"
+#include "../color/color.h"
 #include "output-sk.h"
 
 static void

@@ -25,9 +25,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../types.h"
-#include "../../bitmap.h"
-#include "../../message.h"
+#include "../types.h"
+#include "../bitmap/bitmap.h"
+#include "../message.h"
 #include "../xstd/xstd.h"
 #include "input-bmp.h"
 

@@ -30,7 +30,7 @@
 #include <sys/types.h> /* Needed for correct interpretation of magick/api.h */
 #include <magick/api.h>
 #include "input-magick.h"
-#include "../../bitmap.h"
+#include "../bitmap/bitmap.h"
 
 at_bitmap_type input_magick_reader(at_string filename,
 				   at_input_opts_type * opts,

@@ -4,8 +4,8 @@
 #include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "../../message.h"
-#include "../../types.h"
+#include "../message.h"
+#include "../types.h"
 #include "spline.h"
 #include "../vector/vector.h"
 #include "../xstd/xstd.h"

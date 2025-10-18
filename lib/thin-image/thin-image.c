@@ -24,10 +24,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "thin-image.h"
-#include "../../logreport.h"
-#include "../../message.h"
-#include "../../types.h"
-#include "../../bitmap.h"
+#include "../logreport/logreport.h"
+#include "../message.h"
+#include "../types.h"
+#include "../bitmap/bitmap.h"
 #include "../xstd/xstd.h"
 #include <string.h>
  
