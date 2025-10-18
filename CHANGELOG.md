@@ -42,7 +42,7 @@ Original AutoTrace release by Masatake YAMATO and contributors.
 *   Various bug fixes in output formats (DR2D, DXF, CGM, EMF, PDF)
 *   Library version LT_CURRENT=3
 
-For detailed historical changes, see orig_docs/ChangeLog.
+For detailed historical changes, see: [orig_docs/ChangeLog](orig_docs/ChangeLog)
 
 ## Project Information
 
