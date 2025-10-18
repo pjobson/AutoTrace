@@ -18,8 +18,11 @@ This fork maintains the version history from the original AutoTrace project. For
 *   Removed libming dependencies from build system
 *   Updated ImageMagick support from 5.x to 6+ and 7+ using MagickWand API
 *   Completely rewrote input-magick.c for modern ImageMagick versions
+*   Updated input.c to use MagickQueryFormats instead of deprecated GetMagickInfo
 *   Removed old ImageMagick 5.x detection code from configure.in
 *   Added pkg-config detection for MagickWand and MagickCore
+*   Added fallback detection using MagickWand-config and MagickCore-config
+*   Removed obsolete libMagick.la sanity check from configure.in
 *   Removed pstoedit support
 *   Deleted output-pstoedit.c, output-pstoedit.h, output-p2e.c, and output-p2e.h
 *   Removed all pstoedit detection and build configuration from configure.in and Makefile.am
