@@ -3,8 +3,8 @@
 #ifndef IMAGE_PROC_H
 #define IMAGE_PROC_H
 
-#include "bitmap.h"
-#include "color.h"
+#include "../bitmap/bitmap.h"
+#include "../color/color.h"
 
 
 /* Threshold for binarizing a monochrome image */

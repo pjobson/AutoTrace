@@ -5,13 +5,13 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "autotrace.h"
-#include "message.h"
+#include "lib/message.h"
 #include "cmdline.h"
-#include "logreport.h"
-#include "getopt.h"
-#include "filename.h"
+#include "lib/logreport/logreport.h"
+#include "lib/getopt/getopt.h"
+#include "lib/filename/filename.h"
 #include "lib/xstd/xstd.h"
-#include "atou.h"
+#include "lib/atou/atou.h"
 #include "lib/strgicmp/strgicmp.h"
 #include "lib/io/input.h"
 

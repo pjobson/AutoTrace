@@ -3,8 +3,8 @@
 #ifndef AT_EXCEPTION_H
 #define AT_EXCEPTION_H 
 
-#include "autotrace.h"
-#include "types.h"
+#include "../../autotrace.h"
+#include "../types.h"
 
 #ifdef __cplusplus
 extern "C" {

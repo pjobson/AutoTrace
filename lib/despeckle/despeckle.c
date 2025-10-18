@@ -18,16 +18,16 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
 #include <time.h>
-#include "lib/xstd/xstd.h"
-#include "types.h"
-#include "bitmap.h"
+#include "../xstd/xstd.h"
+#include "../types.h"
+#include "../bitmap/bitmap.h"
 #include "despeckle.h"
 
 /* Calculate Error - compute the error between two colors

@@ -1,12 +1,12 @@
 /* image-proc.c: image processing routines */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <assert.h>
 #include <math.h>
-#include "lib/xstd/xstd.h"
+#include "../xstd/xstd.h"
 #include "image-proc.h"
 
 #define BLACK 0

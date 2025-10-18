@@ -3,8 +3,8 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-#include "autotrace.h"
-#include "bitmap.h"
+#include "../../autotrace.h"
+#include "../bitmap/bitmap.h"
 
 typedef at_color_type color_type;
 

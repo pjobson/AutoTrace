@@ -3,8 +3,8 @@
 #ifndef CURVE_H
 #define CURVE_H
 
-#include "autotrace.h"
-#include "lib/vector/vector.h"
+#include "../../autotrace.h"
+#include "../vector/vector.h"
 
 
 /* We are simultaneously manipulating two different representations of

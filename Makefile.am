@@ -63,45 +63,45 @@ output_src=\
 
 libautotrace_la_SOURCES = \
 	$(input_src) $(output_src) \
-	fit.c \
-	bitmap.c \
+	lib/fit/fit.c \
+	lib/bitmap/bitmap.c \
 	lib/spline/spline.c \
-	curve.c \
-	epsilon-equal.c \
+	lib/curve/curve.c \
+	lib/epsilon-equal/epsilon-equal.c \
 	lib/vector/vector.c \
-	color.c \
+	lib/color/color.c \
 	autotrace.c \
 	lib/io/output.c \
 	lib/io/input.c \
 	lib/pxl-outline/pxl-outline.c \
-	median.c \
+	lib/median.c \
 	lib/thin-image/thin-image.c \
-	logreport.c \
-	filename.c \
+	lib/logreport/logreport.c \
+	lib/filename/filename.c \
 	lib/xstd/xstd.c \
-	epsilon-equal.h \
+	lib/epsilon-equal/epsilon-equal.h \
 	lib/thin-image/thin-image.h \
-	quantize.h \
-	image-header.h \
-	fit.h \
-	bitmap.h \
+	lib/quantize.h \
+	lib/image-header.h \
+	lib/fit/fit.h \
+	lib/bitmap/bitmap.h \
 	lib/spline/spline.h \
-	curve.h \
+	lib/curve/curve.h \
 	lib/vector/vector.h \
-	color.h \
+	lib/color/color.h \
 	lib/pxl-outline/pxl-outline.h \
-	despeckle.c \
-	despeckle.h \
-	exception.c \
+	lib/despeckle/despeckle.c \
+	lib/despeckle/despeckle.h \
+	lib/exception/exception.c \
 	lib/strgicmp/strgicmp.c \
-	image-proc.c \
-	image-proc.h
+	lib/image-proc/image-proc.c \
+	lib/image-proc/image-proc.h
 
-autotraceinclude_HEADERS=types.h \
+autotraceinclude_HEADERS=lib/types.h \
 	autotrace.h \
 	lib/io/input.h \
 	lib/io/output.h \
-	exception.h
+	lib/exception/exception.h
 
 libautotrace_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 
@@ -109,18 +109,18 @@ libautotrace_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 # noinst_HEADERS: headers shared between lib and bin.
 # File not installed and not shared should be in
 # libautotrace_a_SOURCES.
-noinst_HEADERS=filename.h \
+noinst_HEADERS=lib/filename/filename.h \
 	lib/xstd/xstd.h \
-	logreport.h \
-	message.h
+	lib/logreport/logreport.h \
+	lib/message.h
 
-autotrace_SOURCES=atou.c \
-	atou.h \
+autotrace_SOURCES=lib/atou/atou.c \
+	lib/atou/atou.h \
 	main.c \
 	cmdline.h \
-	getopt.c \
-	getopt.h \
-	getopt1.c \
+	lib/getopt/getopt.c \
+	lib/getopt/getopt.h \
+	lib/getopt/getopt1.c \
 	lib/strgicmp/strgicmp.h
 
 INCLUDES = $(MAGICK_CFLAGS) $(LIBPSTOEDIT_CFLAGS)

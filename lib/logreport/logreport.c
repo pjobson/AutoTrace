@@ -1,11 +1,11 @@
 /* logreport.c: showing information to the user. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "logreport.h"
-#include "message.h"
+#include "../message.h"
 
 #ifdef _EXPORTING
 /* Says whether to output detailed progress reports, i.e., all the data

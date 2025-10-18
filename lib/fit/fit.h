@@ -3,11 +3,11 @@
 #ifndef FIT_H
 #define FIT_H
 
-#include "autotrace.h"
-#include "image-proc.h"
-#include "lib/pxl-outline/pxl-outline.h"
-#include "lib/spline/spline.h"
-#include "exception.h"
+#include "../../autotrace.h"
+#include "../image-proc/image-proc.h"
+#include "../pxl-outline/pxl-outline.h"
+#include "../spline/spline.h"
+#include "../exception/exception.h"
 
 /* See fit.c for descriptions of these variables, all of which can be
    set using options.  */

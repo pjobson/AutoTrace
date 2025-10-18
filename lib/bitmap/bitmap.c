@@ -1,11 +1,11 @@
 /* bitmap.c: operations on bitmaps. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "bitmap.h"
-#include "lib/xstd/xstd.h"
+#include "../xstd/xstd.h"
 
 bitmap_type
 new_bitmap (unsigned short width, unsigned short height)

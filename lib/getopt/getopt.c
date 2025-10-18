@@ -20,11 +20,11 @@
    Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "lib/xstd/xstd.h"
-#include "lib/strgicmp/strgicmp.h"
+#include "../xstd/xstd.h"
+#include "../strgicmp/strgicmp.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -4,7 +4,7 @@
 #define LOGREPORT_H
 
 #include <stdio.h>
-#include "types.h"
+#include "../types.h"
 
 #ifdef _EXPORTING
 /* The file we write information to.  */

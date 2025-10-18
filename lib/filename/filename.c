@@ -21,11 +21,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "filename.h"
-#include "lib/xstd/xstd.h"
+#include "../filename.h"
+#include "../xstd/xstd.h"
 #include <string.h>
 
 /* Return a fresh copy of SOURCE[START..LIMIT], or NULL if LIMIT<START.

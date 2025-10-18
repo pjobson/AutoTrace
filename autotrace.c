@@ -23,23 +23,23 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "autotrace.h"
-#include "exception.h"
+#include "lib/exception/exception.h"
 
-#include "fit.h"
-#include "bitmap.h"
+#include "lib/fit/fit.h"
+#include "lib/bitmap/bitmap.h"
 #include "lib/spline/spline.h"
 
 #include "lib/io/input.h"
 
 #include "lib/xstd/xstd.h"
-#include "image-header.h"
-#include "image-proc.h"
-#include "quantize.h"
+#include "lib/image-header.h"
+#include "lib/image-proc/image-proc.h"
+#include "lib/quantize.h"
 #include "lib/thin-image/thin-image.h"
-#include "despeckle.h"
+#include "lib/despeckle/despeckle.h"
 
 #if HAVE_LIBPSTOEDIT 
-#include "output-pstoedit.h"
+#include "lib/io/output-pstoedit.h"
 #endif /* HAVE_LIBPSTOEDIT */  
 
 #define AT_DEFAULT_DPI 72

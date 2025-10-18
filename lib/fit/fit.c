@@ -21,19 +21,19 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "autotrace.h"
+#include "../../autotrace.h"
 #include "fit.h"
-#include "message.h"
-#include "logreport.h"
-#include "lib/spline/spline.h"
-#include "lib/vector/vector.h"
-#include "curve.h"
-#include "lib/pxl-outline/pxl-outline.h"
-#include "epsilon-equal.h"
-#include "lib/xstd/xstd.h"
+#include "../message.h"
+#include "../logreport/logreport.h"
+#include "../spline/spline.h"
+#include "../vector/vector.h"
+#include "../curve/curve.h"
+#include "../pxl-outline/pxl-outline.h"
+#include "../epsilon-equal/epsilon-equal.h"
+#include "../xstd/xstd.h"
 #include <math.h>
 #ifndef FLT_MAX
 #include <limits.h>

@@ -6,8 +6,8 @@
 #ifndef BITMAP_H
 #define BITMAP_H
 
-#include "autotrace.h"
-#include "lib/io/input.h"
+#include "../../autotrace.h"
+#include "../io/input.h"
 #include <stdio.h>
 
 /* at_ prefix removed version */
