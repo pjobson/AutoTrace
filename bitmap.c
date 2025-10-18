@@ -5,7 +5,7 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "bitmap.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 
 bitmap_type
 new_bitmap (unsigned short width, unsigned short height)

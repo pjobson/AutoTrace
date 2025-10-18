@@ -10,7 +10,7 @@
 #include "logreport.h"
 #include "getopt.h"
 #include "filename.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "atou.h"
 #include "strgicmp.h"
 #include "input.h"

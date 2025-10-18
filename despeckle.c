@@ -25,7 +25,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <time.h>
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "types.h"
 #include "bitmap.h"
 #include "despeckle.h"

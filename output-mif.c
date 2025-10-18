@@ -25,7 +25,7 @@
 #include "spline.h"
 #include "color.h"
 #include "output-mif.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "autotrace.h"
 #include <time.h>
 #include <math.h>

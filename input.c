@@ -35,7 +35,7 @@
 #include "input-magick.h"
 #endif /* HAVE_MAGICK */
 
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "filename.h"
 #include "strgicmp.h"
 #include <string.h>

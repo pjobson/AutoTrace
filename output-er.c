@@ -24,7 +24,7 @@
 #include "types.h"
 #include "spline.h"
 #include "output-er.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include <time.h>
 #include <string.h>
 

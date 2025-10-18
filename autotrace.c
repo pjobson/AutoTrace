@@ -31,7 +31,7 @@
 
 #include "input.h"
 
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "image-header.h"
 #include "image-proc.h"
 #include "quantize.h"

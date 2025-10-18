@@ -11,7 +11,7 @@
 #include "color.h"
 #include "bitmap.h"
 #include "logreport.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "pxl-outline.h"
 #include <assert.h>
 

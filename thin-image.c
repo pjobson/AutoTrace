@@ -28,7 +28,7 @@
 #include "message.h"
 #include "types.h" 
 #include "bitmap.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include <string.h>
  
 #define PIXEL_SET(p, new)  ((void)memcpy((p), (new), sizeof(Pixel)))

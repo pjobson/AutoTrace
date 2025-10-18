@@ -24,7 +24,7 @@
 
 #include "logreport.h"
 #include "curve.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 
 static at_real_coord int_to_real_coord (at_coord);
 

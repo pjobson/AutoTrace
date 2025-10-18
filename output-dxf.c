@@ -27,7 +27,7 @@
 #include "spline.h"
 #include "color.h"
 #include "output-dxf.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "autotrace.h"
 #include <math.h>
 #include <time.h>

@@ -25,7 +25,7 @@
 #include "spline.h"
 #include "color.h"
 #include "output-eps.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "autotrace.h"
 #include <time.h>
 #include <string.h>

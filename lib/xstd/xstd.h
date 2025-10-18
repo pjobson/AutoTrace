@@ -7,8 +7,8 @@
 #ifndef XSTD_H
 #define XSTD_H 
 
-#include "types.h"
-#include "message.h"
+#include "../../types.h"
+#include "../../message.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>

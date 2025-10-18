@@ -22,7 +22,7 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "output-fig.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "color.h"
 #include "spline.h"
 

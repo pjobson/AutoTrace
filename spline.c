@@ -8,7 +8,7 @@
 #include "types.h"
 #include "spline.h"
 #include "vector.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include <assert.h>
 
 /* Print a spline in human-readable form.  */

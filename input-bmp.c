@@ -28,7 +28,7 @@
 #include "types.h"
 #include "bitmap.h"
 #include "message.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "input-bmp.h"
 
 

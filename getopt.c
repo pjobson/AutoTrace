@@ -23,7 +23,7 @@
 #include "config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "strgicmp.h"
 #include <stdio.h>
 #include <stdlib.h>

@@ -25,7 +25,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "filename.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include <string.h>
 
 /* Return a fresh copy of SOURCE[START..LIMIT], or NULL if LIMIT<START.

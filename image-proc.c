@@ -6,7 +6,7 @@
 
 #include <assert.h>
 #include <math.h>
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 #include "image-proc.h"
 
 #define BLACK 0

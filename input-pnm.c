@@ -31,7 +31,7 @@
 #include "bitmap.h"
 #include "input-pnm.h"
 #include "message.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 
 #include <math.h>
 #include <ctype.h>

@@ -40,7 +40,7 @@
 #include "output-pstoedit.h"
 #include "output-p2e.h"
 #include "filename.h"
-#include "xstd.h"
+#include "lib/xstd/xstd.h"
 
 #include <stdio.h>
 #include <stdlib.h>
