@@ -12,7 +12,7 @@
 #include "filename.h"
 #include "lib/xstd/xstd.h"
 #include "atou.h"
-#include "strgicmp.h"
+#include "lib/strgicmp/strgicmp.h"
 #include "lib/io/input.h"
 
 #include <string.h>

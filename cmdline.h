@@ -5,7 +5,7 @@
 
 #include "getopt.h"
 #include "types.h"
-#include "strgicmp.h"
+#include "lib/strgicmp/strgicmp.h"
 #include <string.h>
 
 

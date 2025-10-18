@@ -18,17 +18,17 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "thin-image.h"
-#include "logreport.h"
-#include "message.h"
-#include "types.h" 
-#include "bitmap.h"
-#include "lib/xstd/xstd.h"
+#include "../../logreport.h"
+#include "../../message.h"
+#include "../../types.h"
+#include "../../bitmap.h"
+#include "../xstd/xstd.h"
 #include <string.h>
  
 #define PIXEL_SET(p, new)  ((void)memcpy((p), (new), sizeof(Pixel)))

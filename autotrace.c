@@ -35,7 +35,7 @@
 #include "image-header.h"
 #include "image-proc.h"
 #include "quantize.h"
-#include "thin-image.h"
+#include "lib/thin-image/thin-image.h"
 #include "despeckle.h"
 
 #if HAVE_LIBPSTOEDIT 

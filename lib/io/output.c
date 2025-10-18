@@ -24,7 +24,7 @@
 #include "output.h"
 #include "../xstd/xstd.h"
 #include "../../filename.h"
-#include "../../strgicmp.h"
+#include "../strgicmp/strgicmp.h"
 #include <string.h>
 
 #include "output-eps.h"

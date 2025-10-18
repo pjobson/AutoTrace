@@ -75,12 +75,12 @@ libautotrace_la_SOURCES = \
 	lib/io/input.c \
 	pxl-outline.c \
 	median.c \
-	thin-image.c \
+	lib/thin-image/thin-image.c \
 	logreport.c \
 	filename.c \
 	lib/xstd/xstd.c \
 	epsilon-equal.h \
-	thin-image.h \
+	lib/thin-image/thin-image.h \
 	quantize.h \
 	image-header.h \
 	fit.h \
@@ -93,7 +93,7 @@ libautotrace_la_SOURCES = \
 	despeckle.c \
 	despeckle.h \
 	exception.c \
-	strgicmp.c \
+	lib/strgicmp/strgicmp.c \
 	image-proc.c \
 	image-proc.h
 
@@ -121,7 +121,7 @@ autotrace_SOURCES=atou.c \
 	getopt.c \
 	getopt.h \
 	getopt1.c \
-	strgicmp.h
+	lib/strgicmp/strgicmp.h
 
 INCLUDES = $(MAGICK_CFLAGS) $(LIBPSTOEDIT_CFLAGS)
 autotrace_LDADD=libautotrace.la \

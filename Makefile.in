@@ -192,12 +192,12 @@ am__libautotrace_la_SOURCES_DIST = \
 	lib/io/input.c \
 	pxl-outline.c \
 	median.c \
-	thin-image.c \
+	lib/thin-image/thin-image.c \
 	logreport.c \
 	filename.c \
 	lib/xstd/xstd.c \
 	epsilon-equal.h \
-	thin-image.h \
+	lib/thin-image/thin-image.h \
 	quantize.h \
 	image-header.h \
 	fit.h \
@@ -210,7 +210,7 @@ am__libautotrace_la_SOURCES_DIST = \
 	despeckle.c \
 	despeckle.h \
 	exception.c \
-	strgicmp.c \
+	lib/strgicmp/strgicmp.c \
 	image-proc.c \
 	image-proc.h
 @HAVE_LIBPNG_TRUE@am__objects_1 = lib/io/input-png.lo
@@ -248,13 +248,13 @@ am_libautotrace_la_OBJECTS = \
 	lib/io/input.lo \
 	pxl-outline.lo \
 	median.lo \
-	thin-image.lo \
+	lib/thin-image/thin-image.lo \
 	logreport.lo \
 	filename.lo \
 	lib/xstd/xstd.lo \
 	despeckle.lo \
 	exception.lo \
-	strgicmp.lo \
+	lib/strgicmp/strgicmp.lo \
 	image-proc.lo
 libautotrace_la_OBJECTS = $(am_libautotrace_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
@@ -557,12 +557,12 @@ libautotrace_la_SOURCES = \
 	lib/io/input.c \
 	pxl-outline.c \
 	median.c \
-	thin-image.c \
+	lib/thin-image/thin-image.c \
 	logreport.c \
 	filename.c \
 	lib/xstd/xstd.c \
 	epsilon-equal.h \
-	thin-image.h \
+	lib/thin-image/thin-image.h \
 	quantize.h \
 	image-header.h \
 	fit.h \
@@ -575,7 +575,7 @@ libautotrace_la_SOURCES = \
 	despeckle.c \
 	despeckle.h \
 	exception.c \
-	strgicmp.c \
+	lib/strgicmp/strgicmp.c \
 	image-proc.c \
 	image-proc.h
 
@@ -603,7 +603,7 @@ autotrace_SOURCES = atou.c \
 	getopt.c \
 	getopt.h \
 	getopt1.c \
-	strgicmp.h
+	lib/strgicmp/strgicmp.h
 
 INCLUDES = $(MAGICK_CFLAGS) $(LIBPSTOEDIT_CFLAGS)
 autotrace_LDADD = libautotrace.la \

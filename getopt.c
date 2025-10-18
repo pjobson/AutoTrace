@@ -24,7 +24,7 @@
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "lib/xstd/xstd.h"
-#include "strgicmp.h"
+#include "lib/strgicmp/strgicmp.h"
 #include <stdio.h>
 #include <stdlib.h>
 
