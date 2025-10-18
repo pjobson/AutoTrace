@@ -33,9 +33,6 @@
 #include "output-sk.h"
 #include "output-svg.h"
 #include "output-fig.h"
-#ifdef HAVE_LIBSWF
-#include "output-swf.h"
-#endif /* HAVE_LIBSWF */
 #include "output-emf.h"
 #include "output-mif.h"
 #include "output-dxf.h"
@@ -61,9 +58,6 @@ static struct output_format_entry output_formats[] = {
     {"sk",	"Sketch",			output_sk_writer},
     {"svg",	"Scalable Vector Graphics",	output_svg_writer},
     {"fig",     "XFIG 3.2",                     output_fig_writer},
-#ifdef HAVE_LIBSWF
-    {"swf",	"Shockwave Flash 3",		output_swf_writer},
-#endif /* HAVE_LIBSWF */
     {"emf",     "Enhanced Metafile format",     output_emf_writer},
     {"mif",     "FrameMaker MIF format",        output_mif_writer},
     {"er",      "Elastic Reality Shape file",   output_er_writer},

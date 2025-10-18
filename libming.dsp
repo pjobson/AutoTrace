@@ -237,10 +237,6 @@ SOURCE="..\..\ming-0.2a\src\blocks\jpeg.h"
 # End Source File
 # Begin Source File
 
-SOURCE="..\..\ming-0.2a\src\libswf.h"
-# End Source File
-# Begin Source File
-
 SOURCE="..\..\ming-0.2a\src\blocks\libming.h"
 # End Source File
 # Begin Source File
@@ -386,10 +382,6 @@ SOURCE="..\..\ming-0.2a\src\blocks\sprite.c"
 # Begin Source File
 
 SOURCE="..\..\ming-0.2a\src\blocks\sprite.h"
-# End Source File
-# Begin Source File
-
-SOURCE="..\..\ming-0.2a\src\blocks\swf.h"
 # End Source File
 # Begin Source File
 

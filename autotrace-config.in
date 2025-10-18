@@ -205,7 +205,7 @@ fi
 #dummy because this should always be selected
 
 af_cflags="$af_cflags -I@includedir@"
-af_libs="-L@libdir@ -lautotrace @LIBPNG_LDFLAGS@ @MAGICK_LDFLAGS@ @LIBSWF_LDFLAGS@ @LIBPSTOEDIT_LIBS@ $af_libs"
+af_libs="-L@libdir@ -lautotrace @LIBPNG_LDFLAGS@ @MAGICK_LDFLAGS@ @LIBPSTOEDIT_LIBS@ $af_libs"
 
 
 

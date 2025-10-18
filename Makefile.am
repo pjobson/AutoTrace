@@ -1,13 +1,11 @@
 man_MANS = autotrace.1
 EXTRA_DIST=$(man_MANS)						\
-output-swf.c output-swf.h					\
 input-magick.h input-magick.c input-png.c input-png.h		\
 output-pstoedit.c output-pstoedit.h				\
 autotrace-config.af autotrace-config.in				\
 autotrace.dsp autotrace.dsw					\
 autotrace.m4 shape_cubic.c.diff README.MING			\
-libming.dsw libming.dsp						\
-autotrace.sln autotrace.vcproj libming.sln libming.vcproj	\
+autotrace.sln autotrace.vcproj	\
 autotrace.pc.in autotrace.spec.in TODO HACKING FAQ
 
 AUTOMAKE_OPTIONS = foreign no-dependencies
@@ -34,12 +32,6 @@ input-tga.c input-tga.h \
 $(input_png_src) \
 $(input_magick_src)
 
-if HAVE_LIBSWF
-output_swf_src=output-swf.c output-swf.h
-else
-output_swf_src=
-endif
-
 if HAVE_LIBPSTOEDIT
 output_pstoedit_src=output-pstoedit.h output-pstoedit.c
 else
@@ -58,7 +50,6 @@ output-pdf.c output-pdf.h \
 output-mif.c output-mif.h \
 output-cgm.c output-cgm.h \
 output-dr2d.c output-dr2d.h \
-$(output_swf_src) \
 $(output_pstoedit_src)
 
 libautotrace_la_SOURCES =\
@@ -130,7 +121,6 @@ autotrace_LDADD =				\
 		libautotrace.la			\
 		$(MAGICK_LDFLAGS)		\
 		$(LIBPNG_LDFLAGS)		\
-		$(LIBSWF_LDFLAGS)		\
 		$(LIBPSTOEDIT_LIBS)		\
 		-lm
 

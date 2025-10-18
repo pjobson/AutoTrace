@@ -22,7 +22,7 @@
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="C:\ImageMagick-5.3.4,C:\ming-0.2a,C:\pstoedit-3.32"
-				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_VISUALC_;NeedFunctionPrototypes;HAVE_MAGICK;AUTOTRACE_VERSION=\&quot;0.31\&quot;;HAVE_LIBSWF;inline=__inline;_MAGICKDLL_;AUTOTRACE_WEB=\&quot;&quot;https://github.com/pjobson/AutoTrace&quot;\&quot;;HAVE_LIBPSTOEDIT"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_VISUALC_;NeedFunctionPrototypes;HAVE_MAGICK;AUTOTRACE_VERSION=\&quot;0.31\&quot;;inline=__inline;_MAGICKDLL_;AUTOTRACE_WEB=\&quot;&quot;https://github.com/pjobson/AutoTrace&quot;\&quot;;HAVE_LIBPSTOEDIT"
 				StringPooling="TRUE"
 				RuntimeLibrary="4"
 				EnableFunctionLevelLinking="TRUE"
@@ -75,7 +75,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="C:\ImageMagick-5.3.4,C:\ming-0.2a,C:\pstoedit-3.32"
-				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_VISUALC_;NeedFunctionPrototypes;HAVE_MAGICK;AUTOTRACE_VERSION=\&quot;0.30\&quot;;HAVE_LIBSWF;inline=__inline;_MAGICKDLL_;AUTOTRACE_WEB=\&quot;&quot;https://github.com/pjobson/AutoTrace&quot;\&quot;;HAVE_LIBPSTOEDIT"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;_VISUALC_;NeedFunctionPrototypes;HAVE_MAGICK;AUTOTRACE_VERSION=\&quot;0.30\&quot;;inline=__inline;_MAGICKDLL_;AUTOTRACE_WEB=\&quot;&quot;https://github.com/pjobson/AutoTrace&quot;\&quot;;HAVE_LIBPSTOEDIT"
 				RuntimeLibrary="5"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderFile=".\autotrace___Win32_Debug\autotrace.exe.pch"
@@ -328,12 +328,6 @@
 		</File>
 		<File
 			RelativePath=".\output-svg.h">
-		</File>
-		<File
-			RelativePath=".\output-swf.c">
-		</File>
-		<File
-			RelativePath=".\output-swf.h">
 		</File>
 		<File
 			RelativePath=".\output.c">
