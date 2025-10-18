@@ -170,4 +170,4 @@ The input and output functions can also be used under the GNU Lesser General Pub
 
 ## Contributing
 
-Contributions are welcome. See the TODO and HACKING files for areas needing work.
+Contributions are welcome. See the TODO.md file for areas needing work.
