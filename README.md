@@ -33,6 +33,12 @@ This fork includes updates to work with modern library versions:
 
 ## Building from Source
 
+**Note:** If you're building from a Git clone (rather than a release tarball), or if you encounter errors about missing auxiliary files like `compile`, run this first:
+
+    autoreconf -i
+
+This regenerates the autotools configuration files and installs any missing auxiliary scripts.
+
 ### Quick Start
 
     ./configure
