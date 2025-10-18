@@ -1,5 +1,6 @@
 .libs/
 atou.o
+autom4te.cache/
 autotrace
 autotrace-config
 autotrace.lo
@@ -12,6 +13,7 @@ color.o
 config.h
 config.log
 config.status
+configure~
 curve.lo
 curve.o
 despeckle.lo
