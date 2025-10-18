@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This fork maintains the version history from the original AutoTrace project. For the complete historical changelog from AutoTrace 0.31.1 and earlier, see orig_docs/ChangeLog.
 
-## 0.32.0-fork - 2025-10-18
+## 0.32.0 - 2025-10-18
 
 *   Updated project URLs from http://autotrace.sourceforge.net to https://github.com/pjobson/AutoTrace
 *   Modernized help output with reorganized sections for better usability
@@ -16,6 +16,14 @@ This fork maintains the version history from the original AutoTrace project. For
 *   Removed SWF (Shockwave Flash) output support
 *   Deleted output-swf.c and output-swf.h
 *   Removed libming dependencies from build system
+*   Updated ImageMagick support from 5.x to 6+ and 7+ using MagickWand API
+*   Completely rewrote input-magick.c for modern ImageMagick versions
+*   Removed old ImageMagick 5.x detection code from configure.in
+*   Added pkg-config detection for MagickWand and MagickCore
+*   Removed pstoedit support
+*   Deleted output-pstoedit.c, output-pstoedit.h, output-p2e.c, and output-p2e.h
+*   Removed all pstoedit detection and build configuration from configure.in and Makefile.am
+*   Simplified lib/io/output.c by removing pstoedit-related code
 *   Cleaned up configure.in, Makefile.am, and related files
 *   Removed Windows-specific build files including Visual Studio project files (.vcproj, .dsp, .dsw, .sln)
 *   Removed libming Visual Studio projects
