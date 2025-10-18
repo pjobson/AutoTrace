@@ -20,9 +20,9 @@
 #ifndef OUTPUT_H
 #define OUTPUT_H
 #include <stdio.h>
-#include "autotrace.h"
-#include "types.h"
-#include "exception.h"
+#include "../../autotrace.h"
+#include "../../types.h"
+#include "../../exception.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -29,7 +29,7 @@
 #include "bitmap.h"
 #include "spline.h"
 
-#include "input.h"
+#include "lib/io/input.h"
 
 #include "lib/xstd/xstd.h"
 #include "image-header.h"

@@ -7,7 +7,7 @@
 #define BITMAP_H
 
 #include "autotrace.h"
-#include "input.h"
+#include "lib/io/input.h"
 #include <stdio.h>
 
 /* at_ prefix removed version */

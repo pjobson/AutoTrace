@@ -141,36 +141,121 @@ am__uninstall_files_from_dir = { \
   }
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libautotrace_la_LIBADD =
-am__libautotrace_la_SOURCES_DIST = input-pnm.c input-pnm.h input-bmp.c \
-	input-bmp.h input-tga.c input-tga.h input-png.c input-png.h \
-	input-magick.h input-magick.c output-eps.c output-eps.h \
-	output-er.c output-er.h output-fig.c output-fig.h output-sk.c \
-	output-sk.h output-svg.c output-svg.h output-p2e.c \
-	output-p2e.h output-emf.c output-emf.h output-dxf.c \
-	output-dxf.h output-epd.c output-epd.h output-pdf.c \
-	output-pdf.h output-mif.c output-mif.h output-cgm.c \
-	output-cgm.h output-dr2d.c output-dr2d.h output-pstoedit.h \
-	output-pstoedit.c fit.c bitmap.c spline.c curve.c \
-	epsilon-equal.c vector.c color.c autotrace.c output.c input.c \
-	pxl-outline.c median.c thin-image.c logreport.c filename.c \
-	lib/xstd/xstd.c epsilon-equal.h thin-image.h quantize.h image-header.h \
-	fit.h bitmap.h spline.h curve.h vector.h color.h pxl-outline.h \
-	despeckle.c despeckle.h exception.c strgicmp.c image-proc.c \
+am__libautotrace_la_SOURCES_DIST = \
+	lib/io/input-pnm.c \
+	lib/io/input-pnm.h \
+	lib/io/input-bmp.c \
+	lib/io/input-bmp.h \
+	lib/io/input-tga.c \
+	lib/io/input-tga.h \
+	lib/io/input-png.c \
+	lib/io/input-png.h \
+	lib/io/input-magick.h \
+	lib/io/input-magick.c \
+	lib/io/output-eps.c \
+	lib/io/output-eps.h \
+	lib/io/output-er.c \
+	lib/io/output-er.h \
+	lib/io/output-fig.c \
+	lib/io/output-fig.h \
+	lib/io/output-sk.c \
+	lib/io/output-sk.h \
+	lib/io/output-svg.c \
+	lib/io/output-svg.h \
+	lib/io/output-p2e.c \
+	lib/io/output-p2e.h \
+	lib/io/output-emf.c \
+	lib/io/output-emf.h \
+	lib/io/output-dxf.c \
+	lib/io/output-dxf.h \
+	lib/io/output-epd.c \
+	lib/io/output-epd.h \
+	lib/io/output-pdf.c \
+	lib/io/output-pdf.h \
+	lib/io/output-mif.c \
+	lib/io/output-mif.h \
+	lib/io/output-cgm.c \
+	lib/io/output-cgm.h \
+	lib/io/output-dr2d.c \
+	lib/io/output-dr2d.h \
+	lib/io/output-pstoedit.h \
+	lib/io/output-pstoedit.c \
+	fit.c \
+	bitmap.c \
+	spline.c \
+	curve.c \
+	epsilon-equal.c \
+	vector.c \
+	color.c \
+	autotrace.c \
+	lib/io/output.c \
+	lib/io/input.c \
+	pxl-outline.c \
+	median.c \
+	thin-image.c \
+	logreport.c \
+	filename.c \
+	lib/xstd/xstd.c \
+	epsilon-equal.h \
+	thin-image.h \
+	quantize.h \
+	image-header.h \
+	fit.h \
+	bitmap.h \
+	spline.h \
+	curve.h \
+	vector.h \
+	color.h \
+	pxl-outline.h \
+	despeckle.c \
+	despeckle.h \
+	exception.c \
+	strgicmp.c \
+	image-proc.c \
 	image-proc.h
-@HAVE_LIBPNG_TRUE@am__objects_1 = input-png.lo
-@HAVE_MAGICK_TRUE@am__objects_2 = input-magick.lo
-am__objects_3 = input-pnm.lo input-bmp.lo input-tga.lo \
+@HAVE_LIBPNG_TRUE@am__objects_1 = lib/io/input-png.lo
+@HAVE_MAGICK_TRUE@am__objects_2 = lib/io/input-magick.lo
+am__objects_3 = lib/io/input-pnm.lo lib/io/input-bmp.lo lib/io/input-tga.lo \
 	$(am__objects_1) $(am__objects_2)
-@HAVE_LIBPSTOEDIT_TRUE@am__objects_4 = output-pstoedit.lo
-am__objects_5 = output-eps.lo output-er.lo output-fig.lo output-sk.lo \
-	output-svg.lo output-p2e.lo output-emf.lo output-dxf.lo \
-	output-epd.lo output-pdf.lo output-mif.lo output-cgm.lo \
-	output-dr2d.lo $(am__objects_4)
-am_libautotrace_la_OBJECTS = $(am__objects_3) $(am__objects_5) fit.lo \
-	bitmap.lo spline.lo curve.lo epsilon-equal.lo vector.lo \
-	color.lo autotrace.lo output.lo input.lo pxl-outline.lo \
-	median.lo thin-image.lo logreport.lo filename.lo lib/xstd/xstd.lo \
-	despeckle.lo exception.lo strgicmp.lo image-proc.lo
+@HAVE_LIBPSTOEDIT_TRUE@am__objects_4 = lib/io/output-pstoedit.lo
+am__objects_5 = \
+	lib/io/output-eps.lo \
+	lib/io/output-er.lo \
+	lib/io/output-fig.lo \
+	lib/io/output-sk.lo \
+	lib/io/output-svg.lo \
+	lib/io/output-p2e.lo \
+	lib/io/output-emf.lo \
+	lib/io/output-dxf.lo \
+	lib/io/output-epd.lo \
+	lib/io/output-pdf.lo \
+	lib/io/output-mif.lo \
+	lib/io/output-cgm.lo \
+	lib/io/output-dr2d.lo \
+	$(am__objects_4)
+am_libautotrace_la_OBJECTS = \
+	$(am__objects_3) \
+	$(am__objects_5) \
+	fit.lo \
+	bitmap.lo \
+	spline.lo \
+	curve.lo \
+	epsilon-equal.lo \
+	vector.lo \
+	color.lo \
+	autotrace.lo \
+	lib/io/output.lo \
+	lib/io/input.lo \
+	pxl-outline.lo \
+	median.lo \
+	thin-image.lo \
+	logreport.lo \
+	filename.lo \
+	lib/xstd/xstd.lo \
+	despeckle.lo \
+	exception.lo \
+	strgicmp.lo \
+	image-proc.lo
 libautotrace_la_OBJECTS = $(am_libautotrace_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -235,8 +320,8 @@ DATA = $(m4data_DATA) $(pkgconfig_DATA)
 HEADERS = $(autotraceinclude_HEADERS) $(noinst_HEADERS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP) \
 	config.h.in
-# Read a list of newline-separated strings from the standard input,
-# and print each of them once, without duplicates.  Input order is
+# Read a list of newline-separated strings from the standard lib/io/input,
+# and print each of them once, without duplicates.  lib/io/input order is
 # *not* preserved.
 am__uniquify_input = $(AWK) '\
   BEGIN { nonempty = 0; } \
@@ -414,40 +499,48 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 man_MANS = autotrace.1
 EXTRA_DIST = $(man_MANS) \
-	input-magick.h input-magick.c input-png.c input-png.h \
-	output-pstoedit.c output-pstoedit.h \
-	autotrace-config.af autotrace-config.in \
+	lib/io/input-magick.h \
+	lib/io/input-magick.c \
+	lib/io/input-png.c \
+	lib/io/input-png.h \
+	lib/io/output-pstoedit.c \
+	lib/io/output-pstoedit.h \
+	autotrace-config.af \
+	autotrace-config.in \
 	autotrace.m4 \
-	autotrace.pc.in autotrace.spec.in TODO HACKING FAQ
+	autotrace.pc.in \
+	autotrace.spec.in
 
 AUTOMAKE_OPTIONS = foreign no-dependencies
 autotraceincludedir = $(includedir)/autotrace
 lib_LTLIBRARIES = libautotrace.la
 @HAVE_MAGICK_FALSE@input_magick_src =
-@HAVE_MAGICK_TRUE@input_magick_src = input-magick.h input-magick.c
+@HAVE_MAGICK_TRUE@input_magick_src = lib/io/input-magick.h lib/io/input-magick.c
 @HAVE_LIBPNG_FALSE@input_png_src = 
-@HAVE_LIBPNG_TRUE@input_png_src = input-png.c input-png.h
-input_src = input-pnm.c input-pnm.h \
-	input-bmp.c input-bmp.h \
-	input-tga.c input-tga.h \
+@HAVE_LIBPNG_TRUE@input_png_src = lib/io/input-png.c lib/io/input-png.h
+input_src = \
+	lib/io/input-pnm.c lib/io/input-pnm.h \
+	lib/io/input-bmp.c lib/io/input-bmp.h \
+	lib/io/input-tga.c lib/io/input-tga.h \
 	$(input_png_src) \
 	$(input_magick_src)
 
 @HAVE_LIBPSTOEDIT_FALSE@output_pstoedit_src =
-@HAVE_LIBPSTOEDIT_TRUE@output_pstoedit_src = output-pstoedit.h output-pstoedit.c
-output_src = output-eps.c output-eps.h \
-	output-er.c output-er.h \
-	output-fig.c output-fig.h \
-	output-sk.c output-sk.h \
-	output-svg.c output-svg.h \
-	output-p2e.c output-p2e.h \
-	output-emf.c output-emf.h \
-	output-dxf.c output-dxf.h \
-	output-epd.c output-epd.h \
-	output-pdf.c output-pdf.h \
-	output-mif.c output-mif.h \
-	output-cgm.c output-cgm.h \
-	output-dr2d.c output-dr2d.h \
+@HAVE_LIBPSTOEDIT_TRUE@output_pstoedit_src = lib/io/output-pstoedit.h lib/io/output-pstoedit.c
+output_src = \
+	lib/io/output-eps.c  lib/io/output-eps.h  \
+	lib/io/output-er.c   lib/io/output-er.h   \
+	lib/io/output-fig.c  lib/io/output-fig.h  \
+	lib/io/output-sk.c   lib/io/output-sk.h   \
+	lib/io/output-svg.c  lib/io/output-svg.h  \
+	lib/io/output-p2e.c  lib/io/output-p2e.h  \
+	lib/io/output-emf.c  lib/io/output-emf.h  \
+	lib/io/output-dxf.c  lib/io/output-dxf.h  \
+	lib/io/output-epd.c  lib/io/output-epd.h  \
+	lib/io/output-pdf.c  lib/io/output-pdf.h  \
+	lib/io/output-mif.c  lib/io/output-mif.h  \
+	lib/io/output-cgm.c  lib/io/output-cgm.h  \
+	lib/io/output-dr2d.c lib/io/output-dr2d.h \
 	$(output_pstoedit_src)
 
 libautotrace_la_SOURCES = \
@@ -460,8 +553,8 @@ libautotrace_la_SOURCES = \
 	vector.c \
 	color.c \
 	autotrace.c \
-	output.c \
-	input.c \
+	lib/io/output.c \
+	lib/io/input.c \
 	pxl-outline.c \
 	median.c \
 	thin-image.c \
@@ -488,8 +581,8 @@ libautotrace_la_SOURCES = \
 
 autotraceinclude_HEADERS = types.h \
 	autotrace.h \
-	input.h \
-	output.h \
+	lib/io/input.h \
+	lib/io/output.h \
 	exception.h
 
 libautotrace_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)

@@ -1,10 +1,16 @@
 man_MANS = autotrace.1
 EXTRA_DIST=$(man_MANS) \
-	input-magick.h input-magick.c input-png.c input-png.h \
-	output-pstoedit.c output-pstoedit.h \
-	autotrace-config.af autotrace-config.in \
+	lib/io/input-magick.h \
+	lib/io/input-magick.c \
+	lib/io/input-png.c \
+	lib/io/input-png.h \
+	lib/io/output-pstoedit.c \
+	lib/io/output-pstoedit.h \
+	autotrace-config.af \
+	autotrace-config.in \
 	autotrace.m4 \
-	autotrace.pc.in autotrace.spec.in TODO HACKING FAQ
+	autotrace.pc.in \
+	autotrace.spec.in
 
 AUTOMAKE_OPTIONS = foreign no-dependencies
 
@@ -13,41 +19,46 @@ lib_LTLIBRARIES=libautotrace.la
 bin_PROGRAMS=autotrace
 
 if HAVE_MAGICK
-input_magick_src=input-magick.h input-magick.c
+input_magick_src=lib/io/input-magick.h lib/io/input-magick.c
 else
 input_magick_src=
 endif
 
 if HAVE_LIBPNG
-input_png_src=input-png.c input-png.h
+input_png_src=lib/io/input-png.c lib/io/input-png.h
 else
 input_png_src=
 endif
 
-input_src=input-pnm.c input-pnm.h \
-	input-bmp.c input-bmp.h \
-	input-tga.c input-tga.h \
+input_src=\
+	lib/io/input-pnm.c \
+	lib/io/input-pnm.h \
+	lib/io/input-bmp.c \
+	lib/io/input-bmp.h \
+	lib/io/input-tga.c \
+	lib/io/input-tga.h \
 	$(input_png_src) \
 	$(input_magick_src)
 
 if HAVE_LIBPSTOEDIT
-output_pstoedit_src=output-pstoedit.h output-pstoedit.c
+output_pstoedit_src=lib/io/output-pstoedit.h lib/io/output-pstoedit.c
 else
 output_pstoedit_src=
 endif
-output_src=output-eps.c output-eps.h \
-	output-er.c output-er.h \
-	output-fig.c output-fig.h \
-	output-sk.c output-sk.h \
-	output-svg.c output-svg.h \
-	output-p2e.c output-p2e.h \
-	output-emf.c output-emf.h \
-	output-dxf.c output-dxf.h \
-	output-epd.c output-epd.h \
-	output-pdf.c output-pdf.h \
-	output-mif.c output-mif.h \
-	output-cgm.c output-cgm.h \
-	output-dr2d.c output-dr2d.h \
+output_src=\
+	lib/io/output-eps.c  lib/io/output-eps.h \
+	lib/io/output-er.c   lib/io/output-er.h   \
+	lib/io/output-fig.c  lib/io/output-fig.h  \
+	lib/io/output-sk.c   lib/io/output-sk.h   \
+	lib/io/output-svg.c  lib/io/output-svg.h  \
+	lib/io/output-p2e.c  lib/io/output-p2e.h  \
+	lib/io/output-emf.c  lib/io/output-emf.h  \
+	lib/io/output-dxf.c  lib/io/output-dxf.h  \
+	lib/io/output-epd.c  lib/io/output-epd.h  \
+	lib/io/output-pdf.c  lib/io/output-pdf.h  \
+	lib/io/output-mif.c  lib/io/output-mif.h  \
+	lib/io/output-cgm.c  lib/io/output-cgm.h  \
+	lib/io/output-dr2d.c lib/io/output-dr2d.h \
 	$(output_pstoedit_src)
 
 libautotrace_la_SOURCES = \
@@ -60,8 +71,8 @@ libautotrace_la_SOURCES = \
 	vector.c \
 	color.c \
 	autotrace.c \
-	output.c \
-	input.c \
+	lib/io/output.c \
+	lib/io/input.c \
 	pxl-outline.c \
 	median.c \
 	thin-image.c \
@@ -88,8 +99,8 @@ libautotrace_la_SOURCES = \
 
 autotraceinclude_HEADERS=types.h \
 	autotrace.h \
-	input.h \
-	output.h \
+	lib/io/input.h \
+	lib/io/output.h \
 	exception.h
 
 libautotrace_la_LDFLAGS = -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
