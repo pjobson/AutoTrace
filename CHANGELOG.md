@@ -8,6 +8,7 @@ This fork maintains the version history from the original AutoTrace project. For
 
 *   Updated project URLs from http://autotrace.sourceforge.net to https://github.com/pjobson/AutoTrace
 *   Modernized help output with reorganized sections for better usability
+*   Changed --help to show only common image formats instead of listing all ImageMagick formats (use --list-input-formats to see all)
 *   Moved original documentation to orig_docs/ directory
 *   Updated README.md with modern build instructions and fork information
 *   Fixed libpng compatibility issues with modern libpng versions by replacing direct structure access with proper API functions (png_get_error_ptr, png_get_bit_depth, png_get_color_type, etc.)

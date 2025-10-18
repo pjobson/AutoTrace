@@ -153,8 +153,8 @@ at_input_shortlist (void)
   size_t length = 0;
   int i;
 #if HAVE_MAGICK
-  char **formats;
-  size_t num_formats;
+  /* Common ImageMagick formats to display in help */
+  const char *common_formats[] = {"JPG", "JPEG", "GIF", "TIFF", "TIF", NULL};
   size_t j;
 #endif
 
@@ -166,12 +166,12 @@ at_input_shortlist (void)
   }
 
 #if HAVE_MAGICK
-  MagickWandGenesis();
-  formats = MagickQueryFormats("*", &num_formats);
-  for (j = 0; j < num_formats; j++)
+  for (j = 0; common_formats[j] != NULL; j++)
     {
-      length += strlen (formats[j]) + 2;
+      length += strlen (common_formats[j]) + 2;
     }
+  /* Add space for " (and more via ImageMagick)" */
+  length += 30;
 #endif
 
   XMALLOC(list, sizeof (char) * (length + 1 + 2));
@@ -185,17 +185,20 @@ at_input_shortlist (void)
     }
 
 #if HAVE_MAGICK
-  for (j = 0; j < num_formats; j++)
+  for (j = 0; common_formats[j] != NULL; j++)
     {
       strcat (list, ", ");
-      strcat (list, formats[j]);
+      strcat (list, common_formats[j]);
     }
-  MagickRelinquishMemory(formats);
-  MagickWandTerminus();
 #endif
 
   strcat (list, " or ");
   strcat (list, (char *) entry[i].name);
+
+#if HAVE_MAGICK
+  strcat (list, " (+ more via ImageMagick)");
+#endif
+
   return list;
 }
 
