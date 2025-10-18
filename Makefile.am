@@ -4,8 +4,6 @@ EXTRA_DIST=$(man_MANS) \
 	lib/io/input-magick.c \
 	lib/io/input-png.c \
 	lib/io/input-png.h \
-	lib/io/output-pstoedit.c \
-	lib/io/output-pstoedit.h \
 	autotrace-config.af \
 	autotrace-config.in \
 	autotrace.m4 \
@@ -40,26 +38,19 @@ input_src=\
 	$(input_png_src) \
 	$(input_magick_src)
 
-if HAVE_LIBPSTOEDIT
-output_pstoedit_src=lib/io/output-pstoedit.h lib/io/output-pstoedit.c
-else
-output_pstoedit_src=
-endif
 output_src=\
 	lib/io/output-eps.c  lib/io/output-eps.h \
 	lib/io/output-er.c   lib/io/output-er.h   \
 	lib/io/output-fig.c  lib/io/output-fig.h  \
 	lib/io/output-sk.c   lib/io/output-sk.h   \
 	lib/io/output-svg.c  lib/io/output-svg.h  \
-	lib/io/output-p2e.c  lib/io/output-p2e.h  \
 	lib/io/output-emf.c  lib/io/output-emf.h  \
 	lib/io/output-dxf.c  lib/io/output-dxf.h  \
 	lib/io/output-epd.c  lib/io/output-epd.h  \
 	lib/io/output-pdf.c  lib/io/output-pdf.h  \
 	lib/io/output-mif.c  lib/io/output-mif.h  \
 	lib/io/output-cgm.c  lib/io/output-cgm.h  \
-	lib/io/output-dr2d.c lib/io/output-dr2d.h \
-	$(output_pstoedit_src)
+	lib/io/output-dr2d.c lib/io/output-dr2d.h
 
 libautotrace_la_SOURCES = \
 	$(input_src) $(output_src) \
@@ -123,11 +114,10 @@ autotrace_SOURCES=lib/atou/atou.c \
 	lib/getopt/getopt1.c \
 	lib/strgicmp/strgicmp.h
 
-INCLUDES = $(MAGICK_CFLAGS) $(LIBPSTOEDIT_CFLAGS)
+INCLUDES = $(MAGICK_CFLAGS)
 autotrace_LDADD=libautotrace.la \
 	$(MAGICK_LDFLAGS) \
 	$(LIBPNG_LDFLAGS) \
-	$(LIBPSTOEDIT_LIBS) \
 	-lm
 
 m4datadir=$(datadir)/aclocal

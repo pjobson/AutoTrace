@@ -2,7 +2,7 @@
 #
 # Author: Masatake YAMATO (jet@gyve.org)
 #
-AC_INIT(fit.c)
+AC_INIT(main.c)
 
 #
 # version setting up for Automake 
@@ -222,91 +222,6 @@ are suppressed])
      ;;
 esac
 
-dnl
-dnl pstoedit library
-dnl
-HAVE_LIBPSTOEDIT=no
-HAVE_LIBPSTOEDIT_320=no
-HAVE_LIBPSTOEDIT_321=no
-LIBPSTOEDIT_CFLAGS=
-LIBPSTOEDIT_LIBS=
-LIBPSTOEDIT_EXTRA_LIBS=
-
-AC_ARG_WITH(pstoedit,
-[  --with-pstoedit link with pstoedit library(default)
-  --without-pstoedit link without pstoedit library],,with_pstoedit=yes)
-if test "x${with_pstoedit}" = xyes; then
-dnl
-dnl 
-dnl
-AC_PROG_CXX
-dnl Standard C++ library and C++ Runtime
-dnl --- WORKAROUND for pstoedit 3.32.0
-CXX_RUNTIME_LIB=
-CXX_STD_LIB=
-if test x"$GXX" = xyes; then
-   AC_CHECK_LIB(g++,main,CXX_RUNTIME_LIB=-lg++)
-   AC_CHECK_LIB(stdc++,main,CXX_STD_LIB=-lstdc++,,${CXX_RUNTIME_LIB})
-fi
-AC_MSG_CHECKING([for C++ runtime])
-LIBPSTOEDIT_EXTRA_LIBS="${CXX_STD_LIB} ${CXX_RUNTIME_LIB}"
-AC_MSG_RESULT([${CXX_STD_LIB} ${CXX_RUNTIME_LIB}])
-dnl dl library
-dnl --- WORKAROUND for pstoedit 3.32.0
-LIBLD_LDFLAGS=
-AC_CHECK_LIB(dl,main,[LIBLD_LDFLAGS=-ldl])
-if test "x${LIBLD_LDFLAGS}" != x; then
-   LIBPSTOEDIT_EXTRA_LIBS="${LIBPSTOEDIT_EXTRA_LIBS} ${LIBLD_LDFLAGS}"
-fi
-
-echo '*** Checking pstoedit existence TWICE(if needed) ***'
-echo '*** This is the 1st check                        ***'
-AM_PATH_PSTOEDIT(3.32.1,HAVE_LIBPSTOEDIT_321=yes)
-if test ${HAVE_LIBPSTOEDIT_321} != yes; then
-   echo '*** The 1st check is failed.                     ***'
-   LIBS_BAKCUP=$LIBS
-   LIBS="$LIBS ${LIBPSTOEDIT_EXTRA_LIBS}"
-   echo '*** This is the 2nd check                        ***'
-   AM_PATH_PSTOEDIT(3.32.0,HAVE_LIBPSTOEDIT_320=yes)
-   LIBS=${LIBS_BAKCUP}
-
-   if test ${HAVE_LIBPSTOEDIT_320} = yes; then
-	echo '*** The 2nd check is passed.                     ***'
-        HAVE_LIBPSTOEDIT=yes
-	AC_DEFINE(HAVE_LIBPSTOEDIT)
-	LIBPSTOEDIT_LIBS="${PSTOEDIT_LIBS} ${LIBPSTOEDIT_EXTRA_LIBS}"
-	LIBPSTOEDIT_CFLAGS="${PSTOEDIT_CFLAGS}"
-   else
-        echo '*** The 2nd check is failed.                     ***'
-   fi
-else
-	echo '*** The 1st check is passed.                     ***'
-	HAVE_LIBPSTOEDIT=yes
-	AC_DEFINE(HAVE_LIBPSTOEDIT)
-	LIBPSTOEDIT_LIBS="${PSTOEDIT_LIBS} ${LIBPSTOEDIT_EXTRA_LIBS}"	
-	LIBPSTOEDIT_CFLAGS="${PSTOEDIT_CFLAGS}"
-fi
-
-if test ${HAVE_LIBPSTOEDIT} = yes; then
-	AC_CHECK_FUNCS([mkstemp])
-	echo '*** pstoedit output functions are enabled.                      ***'
-	echo '*** However, these are experimental functions in autotrace.     ***'
-	echo '*** If you get an error in building time about pstoedit,        ***'
-	echo '*** you can run configure with --without-pstoedit option again. ***'
-else
-	AC_MSG_WARN([
-*** Cannot find libpstoedit. ***
-*** Output functions using libpstoedit are disabled ***])
-fi
-dnl
-dnl
-dnl
-else
-AC_MSG_WARN([pstoedit output functions are disabled from command line.])
-fi
-AC_SUBST(LIBPSTOEDIT_CFLAGS)
-AC_SUBST(LIBPSTOEDIT_LIBS)
-AM_CONDITIONAL(HAVE_LIBPSTOEDIT, test x$HAVE_LIBPSTOEDIT = xyes)
 
 dnl
 dnl Vender's cc(not gcc)
@@ -337,6 +252,5 @@ echo "
 Configuration:
 	imagemagick output support:	$HAVE_MAGICK
 	libpng output support:		$HAVE_LIBPNG
-	pstoedit output support:	$HAVE_LIBPSTOEDIT
 
 "

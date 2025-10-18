@@ -141,136 +141,59 @@ am__uninstall_files_from_dir = { \
   }
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libautotrace_la_LIBADD =
-am__libautotrace_la_SOURCES_DIST = \
-	lib/io/input-pnm.c \
-	lib/io/input-pnm.h \
-	lib/io/input-bmp.c \
-	lib/io/input-bmp.h \
-	lib/io/input-tga.c \
-	lib/io/input-tga.h \
-	lib/io/input-png.c \
-	lib/io/input-png.h \
-	lib/io/input-magick.h \
-	lib/io/input-magick.c \
-	lib/io/output-eps.c \
-	lib/io/output-eps.h \
-	lib/io/output-er.c \
-	lib/io/output-er.h \
-	lib/io/output-fig.c \
-	lib/io/output-fig.h \
-	lib/io/output-sk.c \
-	lib/io/output-sk.h \
-	lib/io/output-svg.c \
-	lib/io/output-svg.h \
-	lib/io/output-p2e.c \
-	lib/io/output-p2e.h \
-	lib/io/output-emf.c \
-	lib/io/output-emf.h \
-	lib/io/output-dxf.c \
-	lib/io/output-dxf.h \
-	lib/io/output-epd.c \
-	lib/io/output-epd.h \
-	lib/io/output-pdf.c \
-	lib/io/output-pdf.h \
-	lib/io/output-mif.c \
-	lib/io/output-mif.h \
-	lib/io/output-cgm.c \
-	lib/io/output-cgm.h \
-	lib/io/output-dr2d.c \
-	lib/io/output-dr2d.h \
-	lib/io/output-pstoedit.h \
-	lib/io/output-pstoedit.c \
-	lib/fit/fit.c \
-	lib/bitmap/bitmap.c \
-	lib/spline/spline.c \
-	lib/curve/curve.c \
-	lib/epsilon-equal/epsilon-equal.c \
-	lib/vector/vector.c \
-	lib/color/color.c \
-	autotrace.c \
-	lib/io/output.c \
-	lib/io/input.c \
-	lib/pxl-outline/pxl-outline.c \
-	lib/median.c \
-	lib/thin-image/thin-image.c \
-	lib/logreport/logreport.c \
-	lib/filename/filename.c \
-	lib/xstd/xstd.c \
-	lib/epsilon-equal/epsilon-equal.h \
-	lib/thin-image/thin-image.h \
-	lib/quantize.h \
-	lib/image-header.h \
-	lib/fit/fit.h \
-	lib/bitmap/bitmap.h \
-	lib/spline/spline.h \
-	lib/curve/curve.h \
-	lib/vector/vector.h \
-	lib/color/color.h \
-	lib/pxl-outline/pxl-outline.h \
-	lib/despeckle/despeckle.c \
-	lib/despeckle/despeckle.h \
-	lib/exception/exception.c \
-	lib/strgicmp/strgicmp.c \
-	lib/image-proc/image-proc.c \
+am__libautotrace_la_SOURCES_DIST = lib/io/input-pnm.c \
+	lib/io/input-pnm.h lib/io/input-bmp.c lib/io/input-bmp.h \
+	lib/io/input-tga.c lib/io/input-tga.h lib/io/input-png.c \
+	lib/io/input-png.h lib/io/input-magick.h lib/io/input-magick.c \
+	lib/io/output-eps.c lib/io/output-eps.h lib/io/output-er.c \
+	lib/io/output-er.h lib/io/output-fig.c lib/io/output-fig.h \
+	lib/io/output-sk.c lib/io/output-sk.h lib/io/output-svg.c \
+	lib/io/output-svg.h lib/io/output-emf.c lib/io/output-emf.h \
+	lib/io/output-dxf.c lib/io/output-dxf.h lib/io/output-epd.c \
+	lib/io/output-epd.h lib/io/output-pdf.c lib/io/output-pdf.h \
+	lib/io/output-mif.c lib/io/output-mif.h lib/io/output-cgm.c \
+	lib/io/output-cgm.h lib/io/output-dr2d.c lib/io/output-dr2d.h \
+	lib/fit/fit.c lib/bitmap/bitmap.c lib/spline/spline.c \
+	lib/curve/curve.c lib/epsilon-equal/epsilon-equal.c \
+	lib/vector/vector.c lib/color/color.c autotrace.c \
+	lib/io/output.c lib/io/input.c lib/pxl-outline/pxl-outline.c \
+	lib/median.c lib/thin-image/thin-image.c \
+	lib/logreport/logreport.c lib/filename/filename.c \
+	lib/xstd/xstd.c lib/epsilon-equal/epsilon-equal.h \
+	lib/thin-image/thin-image.h lib/quantize.h lib/image-header.h \
+	lib/fit/fit.h lib/bitmap/bitmap.h lib/spline/spline.h \
+	lib/curve/curve.h lib/vector/vector.h lib/color/color.h \
+	lib/pxl-outline/pxl-outline.h lib/despeckle/despeckle.c \
+	lib/despeckle/despeckle.h lib/exception/exception.c \
+	lib/strgicmp/strgicmp.c lib/image-proc/image-proc.c \
 	lib/image-proc/image-proc.h
-@HAVE_LIBPNG_TRUE@am__objects_1 = lib/io/input-png.lo
-@HAVE_MAGICK_TRUE@am__objects_2 = lib/io/input-magick.lo
-am__objects_3 = lib/io/input-pnm.lo lib/io/input-bmp.lo lib/io/input-tga.lo \
+@HAVE_LIBPNG_TRUE@am__objects_1 = input-png.lo
+@HAVE_MAGICK_TRUE@am__objects_2 = input-magick.lo
+am__objects_3 = input-pnm.lo input-bmp.lo input-tga.lo \
 	$(am__objects_1) $(am__objects_2)
-@HAVE_LIBPSTOEDIT_TRUE@am__objects_4 = lib/io/output-pstoedit.lo
-am__objects_5 = \
-	lib/io/output-eps.lo \
-	lib/io/output-er.lo \
-	lib/io/output-fig.lo \
-	lib/io/output-sk.lo \
-	lib/io/output-svg.lo \
-	lib/io/output-p2e.lo \
-	lib/io/output-emf.lo \
-	lib/io/output-dxf.lo \
-	lib/io/output-epd.lo \
-	lib/io/output-pdf.lo \
-	lib/io/output-mif.lo \
-	lib/io/output-cgm.lo \
-	lib/io/output-dr2d.lo \
-	$(am__objects_4)
-am_libautotrace_la_OBJECTS = \
-	$(am__objects_3) \
-	$(am__objects_5) \
-	lib/fit/fit.lo \
-	lib/bitmap/bitmap.lo \
-	lib/spline/spline.lo \
-	lib/curve/curve.lo \
-	lib/epsilon-equal/epsilon-equal.lo \
-	lib/vector/vector.lo \
-	lib/color/color.lo \
-	autotrace.lo \
-	lib/io/output.lo \
-	lib/io/input.lo \
-	lib/pxl-outline/pxl-outline.lo \
-	lib/median.lo \
-	lib/thin-image/thin-image.lo \
-	lib/logreport/logreport.lo \
-	lib/filename/filename.lo \
-	lib/xstd/xstd.lo \
-	lib/despeckle/despeckle.lo \
-	lib/exception/exception.lo \
-	lib/strgicmp/strgicmp.lo \
-	lib/image-proc/image-proc.lo
+am__objects_4 = output-eps.lo output-er.lo output-fig.lo output-sk.lo \
+	output-svg.lo output-emf.lo output-dxf.lo output-epd.lo \
+	output-pdf.lo output-mif.lo output-cgm.lo output-dr2d.lo
+am_libautotrace_la_OBJECTS = $(am__objects_3) $(am__objects_4) fit.lo \
+	bitmap.lo spline.lo curve.lo epsilon-equal.lo vector.lo \
+	color.lo autotrace.lo output.lo input.lo pxl-outline.lo \
+	median.lo thin-image.lo logreport.lo filename.lo xstd.lo \
+	despeckle.lo exception.lo strgicmp.lo image-proc.lo
 libautotrace_la_OBJECTS = $(am_libautotrace_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__v_lt_1 =
-libautotrace_la_LINK = $(LIBTOOL) $(AM_V_lt) \
+am__v_lt_1 = 
+libautotrace_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(AM_CFLAGS) $(CFLAGS) $(libautotrace_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
-am_autotrace_OBJECTS = lib/atou/atou.$(OBJEXT) main.$(OBJEXT) \
-	lib/getopt/getopt.$(OBJEXT) lib/getopt/getopt1.$(OBJEXT)
+am_autotrace_OBJECTS = atou.$(OBJEXT) main.$(OBJEXT) getopt.$(OBJEXT) \
+	getopt1.$(OBJEXT)
 autotrace_OBJECTS = $(am_autotrace_OBJECTS)
 am__DEPENDENCIES_1 =
 autotrace_DEPENDENCIES = libautotrace.la $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1)
 SCRIPTS = $(bin_SCRIPTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -279,32 +202,32 @@ am__v_P_1 = :
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 =
+am__v_GEN_1 = 
 AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
-am__v_at_1 =
-DEFAULT_INCLUDES = -I. -I$(srcdir)
+am__v_at_1 = 
+DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp =
 am__maybe_remake_depfiles =
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
-LTCOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
+LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) \
 	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
 	$(AM_CFLAGS) $(CFLAGS)
 AM_V_CC = $(am__v_CC_@AM_V@)
 am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
 am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 =
+am__v_CC_1 = 
 CCLD = $(CC)
-LINK = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
+LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 =
+am__v_CCLD_1 = 
 SOURCES = $(libautotrace_la_SOURCES) $(autotrace_SOURCES)
 DIST_SOURCES = $(am__libautotrace_la_SOURCES_DIST) \
 	$(autotrace_SOURCES)
@@ -320,8 +243,8 @@ DATA = $(m4data_DATA) $(pkgconfig_DATA)
 HEADERS = $(autotraceinclude_HEADERS) $(noinst_HEADERS)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP) \
 	config.h.in
-# Read a list of newline-separated strings from the standard lib/io/input,
-# and print each of them once, without duplicates.  lib/io/input order is
+# Read a list of newline-separated strings from the standard input,
+# and print each of them once, without duplicates.  Input order is
 # *not* preserved.
 am__uniquify_input = $(AWK) '\
   BEGIN { nonempty = 0; } \
@@ -339,7 +262,7 @@ am__define_uniq_tagged_files = \
 AM_RECURSIVE_TARGETS = cscope
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/autotrace-config.in \
 	$(srcdir)/autotrace.pc.in $(srcdir)/autotrace.spec.in \
-	$(srcdir)/config.h.in ChangeLog README.md acconfig.h compile \
+	$(srcdir)/config.h.in README.md acconfig.h compile \
 	config.guess config.sub install-sh ltmain.sh missing \
 	mkinstalldirs
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -377,10 +300,6 @@ CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CSCOPE = @CSCOPE@
 CTAGS = @CTAGS@
-CXX = @CXX@
-CXXCPP = @CXXCPP@
-CXXDEPMODE = @CXXDEPMODE@
-CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
@@ -405,8 +324,6 @@ LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 LIBPNG_LDFLAGS = @LIBPNG_LDFLAGS@
-LIBPSTOEDIT_CFLAGS = @LIBPSTOEDIT_CFLAGS@
-LIBPSTOEDIT_LIBS = @LIBPSTOEDIT_LIBS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
@@ -449,7 +366,6 @@ abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
-ac_ct_CXX = @ac_ct_CXX@
 ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -503,8 +419,6 @@ EXTRA_DIST = $(man_MANS) \
 	lib/io/input-magick.c \
 	lib/io/input-png.c \
 	lib/io/input-png.h \
-	lib/io/output-pstoedit.c \
-	lib/io/output-pstoedit.h \
 	autotrace-config.af \
 	autotrace-config.in \
 	autotrace.m4 \
@@ -514,34 +428,33 @@ EXTRA_DIST = $(man_MANS) \
 AUTOMAKE_OPTIONS = foreign no-dependencies
 autotraceincludedir = $(includedir)/autotrace
 lib_LTLIBRARIES = libautotrace.la
-@HAVE_MAGICK_FALSE@input_magick_src =
+@HAVE_MAGICK_FALSE@input_magick_src = 
 @HAVE_MAGICK_TRUE@input_magick_src = lib/io/input-magick.h lib/io/input-magick.c
 @HAVE_LIBPNG_FALSE@input_png_src = 
 @HAVE_LIBPNG_TRUE@input_png_src = lib/io/input-png.c lib/io/input-png.h
 input_src = \
-	lib/io/input-pnm.c lib/io/input-pnm.h \
-	lib/io/input-bmp.c lib/io/input-bmp.h \
-	lib/io/input-tga.c lib/io/input-tga.h \
+	lib/io/input-pnm.c \
+	lib/io/input-pnm.h \
+	lib/io/input-bmp.c \
+	lib/io/input-bmp.h \
+	lib/io/input-tga.c \
+	lib/io/input-tga.h \
 	$(input_png_src) \
 	$(input_magick_src)
 
-@HAVE_LIBPSTOEDIT_FALSE@output_pstoedit_src =
-@HAVE_LIBPSTOEDIT_TRUE@output_pstoedit_src = lib/io/output-pstoedit.h lib/io/output-pstoedit.c
 output_src = \
-	lib/io/output-eps.c  lib/io/output-eps.h  \
+	lib/io/output-eps.c  lib/io/output-eps.h \
 	lib/io/output-er.c   lib/io/output-er.h   \
 	lib/io/output-fig.c  lib/io/output-fig.h  \
 	lib/io/output-sk.c   lib/io/output-sk.h   \
 	lib/io/output-svg.c  lib/io/output-svg.h  \
-	lib/io/output-p2e.c  lib/io/output-p2e.h  \
 	lib/io/output-emf.c  lib/io/output-emf.h  \
 	lib/io/output-dxf.c  lib/io/output-dxf.h  \
 	lib/io/output-epd.c  lib/io/output-epd.h  \
 	lib/io/output-pdf.c  lib/io/output-pdf.h  \
 	lib/io/output-mif.c  lib/io/output-mif.h  \
 	lib/io/output-cgm.c  lib/io/output-cgm.h  \
-	lib/io/output-dr2d.c lib/io/output-dr2d.h \
-	$(output_pstoedit_src)
+	lib/io/output-dr2d.c lib/io/output-dr2d.h
 
 libautotrace_la_SOURCES = \
 	$(input_src) $(output_src) \
@@ -605,11 +518,10 @@ autotrace_SOURCES = lib/atou/atou.c \
 	lib/getopt/getopt1.c \
 	lib/strgicmp/strgicmp.h
 
-INCLUDES = $(MAGICK_CFLAGS) $(LIBPSTOEDIT_CFLAGS)
+INCLUDES = $(MAGICK_CFLAGS)
 autotrace_LDADD = libautotrace.la \
 	$(MAGICK_LDFLAGS) \
 	$(LIBPNG_LDFLAGS) \
-	$(LIBPSTOEDIT_LIBS) \
 	-lm
 
 m4datadir = $(datadir)/aclocal
@@ -762,10 +674,10 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libautotrace.la: $(libautotrace_la_OBJECTS) $(libautotrace_la_DEPENDENCIES) $(EXTRA_libautotrace_la_DEPENDENCIES)
+libautotrace.la: $(libautotrace_la_OBJECTS) $(libautotrace_la_DEPENDENCIES) $(EXTRA_libautotrace_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(libautotrace_la_LINK) -rpath $(libdir) $(libautotrace_la_OBJECTS) $(libautotrace_la_LIBADD) $(LIBS)
 
-autotrace$(EXEEXT): $(autotrace_OBJECTS) $(autotrace_DEPENDENCIES) $(EXTRA_autotrace_DEPENDENCIES)
+autotrace$(EXEEXT): $(autotrace_OBJECTS) $(autotrace_DEPENDENCIES) $(EXTRA_autotrace_DEPENDENCIES) 
 	@rm -f autotrace$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(autotrace_OBJECTS) $(autotrace_LDADD) $(LIBS)
 install-binSCRIPTS: $(bin_SCRIPTS)
@@ -818,6 +730,132 @@ distclean-compile:
 
 .c.lo:
 	$(AM_V_CC)$(LTCOMPILE) -c -o $@ $<
+
+input-pnm.lo: lib/io/input-pnm.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input-pnm.lo `test -f 'lib/io/input-pnm.c' || echo '$(srcdir)/'`lib/io/input-pnm.c
+
+input-bmp.lo: lib/io/input-bmp.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input-bmp.lo `test -f 'lib/io/input-bmp.c' || echo '$(srcdir)/'`lib/io/input-bmp.c
+
+input-tga.lo: lib/io/input-tga.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input-tga.lo `test -f 'lib/io/input-tga.c' || echo '$(srcdir)/'`lib/io/input-tga.c
+
+input-png.lo: lib/io/input-png.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input-png.lo `test -f 'lib/io/input-png.c' || echo '$(srcdir)/'`lib/io/input-png.c
+
+input-magick.lo: lib/io/input-magick.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input-magick.lo `test -f 'lib/io/input-magick.c' || echo '$(srcdir)/'`lib/io/input-magick.c
+
+output-eps.lo: lib/io/output-eps.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-eps.lo `test -f 'lib/io/output-eps.c' || echo '$(srcdir)/'`lib/io/output-eps.c
+
+output-er.lo: lib/io/output-er.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-er.lo `test -f 'lib/io/output-er.c' || echo '$(srcdir)/'`lib/io/output-er.c
+
+output-fig.lo: lib/io/output-fig.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-fig.lo `test -f 'lib/io/output-fig.c' || echo '$(srcdir)/'`lib/io/output-fig.c
+
+output-sk.lo: lib/io/output-sk.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-sk.lo `test -f 'lib/io/output-sk.c' || echo '$(srcdir)/'`lib/io/output-sk.c
+
+output-svg.lo: lib/io/output-svg.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-svg.lo `test -f 'lib/io/output-svg.c' || echo '$(srcdir)/'`lib/io/output-svg.c
+
+output-emf.lo: lib/io/output-emf.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-emf.lo `test -f 'lib/io/output-emf.c' || echo '$(srcdir)/'`lib/io/output-emf.c
+
+output-dxf.lo: lib/io/output-dxf.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-dxf.lo `test -f 'lib/io/output-dxf.c' || echo '$(srcdir)/'`lib/io/output-dxf.c
+
+output-epd.lo: lib/io/output-epd.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-epd.lo `test -f 'lib/io/output-epd.c' || echo '$(srcdir)/'`lib/io/output-epd.c
+
+output-pdf.lo: lib/io/output-pdf.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-pdf.lo `test -f 'lib/io/output-pdf.c' || echo '$(srcdir)/'`lib/io/output-pdf.c
+
+output-mif.lo: lib/io/output-mif.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-mif.lo `test -f 'lib/io/output-mif.c' || echo '$(srcdir)/'`lib/io/output-mif.c
+
+output-cgm.lo: lib/io/output-cgm.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-cgm.lo `test -f 'lib/io/output-cgm.c' || echo '$(srcdir)/'`lib/io/output-cgm.c
+
+output-dr2d.lo: lib/io/output-dr2d.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output-dr2d.lo `test -f 'lib/io/output-dr2d.c' || echo '$(srcdir)/'`lib/io/output-dr2d.c
+
+fit.lo: lib/fit/fit.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o fit.lo `test -f 'lib/fit/fit.c' || echo '$(srcdir)/'`lib/fit/fit.c
+
+bitmap.lo: lib/bitmap/bitmap.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o bitmap.lo `test -f 'lib/bitmap/bitmap.c' || echo '$(srcdir)/'`lib/bitmap/bitmap.c
+
+spline.lo: lib/spline/spline.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o spline.lo `test -f 'lib/spline/spline.c' || echo '$(srcdir)/'`lib/spline/spline.c
+
+curve.lo: lib/curve/curve.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o curve.lo `test -f 'lib/curve/curve.c' || echo '$(srcdir)/'`lib/curve/curve.c
+
+epsilon-equal.lo: lib/epsilon-equal/epsilon-equal.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o epsilon-equal.lo `test -f 'lib/epsilon-equal/epsilon-equal.c' || echo '$(srcdir)/'`lib/epsilon-equal/epsilon-equal.c
+
+vector.lo: lib/vector/vector.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o vector.lo `test -f 'lib/vector/vector.c' || echo '$(srcdir)/'`lib/vector/vector.c
+
+color.lo: lib/color/color.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o color.lo `test -f 'lib/color/color.c' || echo '$(srcdir)/'`lib/color/color.c
+
+output.lo: lib/io/output.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o output.lo `test -f 'lib/io/output.c' || echo '$(srcdir)/'`lib/io/output.c
+
+input.lo: lib/io/input.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o input.lo `test -f 'lib/io/input.c' || echo '$(srcdir)/'`lib/io/input.c
+
+pxl-outline.lo: lib/pxl-outline/pxl-outline.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o pxl-outline.lo `test -f 'lib/pxl-outline/pxl-outline.c' || echo '$(srcdir)/'`lib/pxl-outline/pxl-outline.c
+
+median.lo: lib/median.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o median.lo `test -f 'lib/median.c' || echo '$(srcdir)/'`lib/median.c
+
+thin-image.lo: lib/thin-image/thin-image.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o thin-image.lo `test -f 'lib/thin-image/thin-image.c' || echo '$(srcdir)/'`lib/thin-image/thin-image.c
+
+logreport.lo: lib/logreport/logreport.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o logreport.lo `test -f 'lib/logreport/logreport.c' || echo '$(srcdir)/'`lib/logreport/logreport.c
+
+filename.lo: lib/filename/filename.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o filename.lo `test -f 'lib/filename/filename.c' || echo '$(srcdir)/'`lib/filename/filename.c
+
+xstd.lo: lib/xstd/xstd.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o xstd.lo `test -f 'lib/xstd/xstd.c' || echo '$(srcdir)/'`lib/xstd/xstd.c
+
+despeckle.lo: lib/despeckle/despeckle.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o despeckle.lo `test -f 'lib/despeckle/despeckle.c' || echo '$(srcdir)/'`lib/despeckle/despeckle.c
+
+exception.lo: lib/exception/exception.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o exception.lo `test -f 'lib/exception/exception.c' || echo '$(srcdir)/'`lib/exception/exception.c
+
+strgicmp.lo: lib/strgicmp/strgicmp.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o strgicmp.lo `test -f 'lib/strgicmp/strgicmp.c' || echo '$(srcdir)/'`lib/strgicmp/strgicmp.c
+
+image-proc.lo: lib/image-proc/image-proc.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o image-proc.lo `test -f 'lib/image-proc/image-proc.c' || echo '$(srcdir)/'`lib/image-proc/image-proc.c
+
+atou.o: lib/atou/atou.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o atou.o `test -f 'lib/atou/atou.c' || echo '$(srcdir)/'`lib/atou/atou.c
+
+atou.obj: lib/atou/atou.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o atou.obj `if test -f 'lib/atou/atou.c'; then $(CYGPATH_W) 'lib/atou/atou.c'; else $(CYGPATH_W) '$(srcdir)/lib/atou/atou.c'; fi`
+
+getopt.o: lib/getopt/getopt.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o getopt.o `test -f 'lib/getopt/getopt.c' || echo '$(srcdir)/'`lib/getopt/getopt.c
+
+getopt.obj: lib/getopt/getopt.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o getopt.obj `if test -f 'lib/getopt/getopt.c'; then $(CYGPATH_W) 'lib/getopt/getopt.c'; else $(CYGPATH_W) '$(srcdir)/lib/getopt/getopt.c'; fi`
+
+getopt1.o: lib/getopt/getopt1.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o getopt1.o `test -f 'lib/getopt/getopt1.c' || echo '$(srcdir)/'`lib/getopt/getopt1.c
+
+getopt1.obj: lib/getopt/getopt1.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o getopt1.obj `if test -f 'lib/getopt/getopt1.c'; then $(CYGPATH_W) 'lib/getopt/getopt1.c'; else $(CYGPATH_W) '$(srcdir)/lib/getopt/getopt1.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -1293,20 +1331,21 @@ uninstall-man: uninstall-man1
 
 .PHONY: CTAGS GTAGS TAGS all all-am am--refresh check check-am clean \
 	clean-binPROGRAMS clean-cscope clean-generic \
-	clean-libLTLIBRARIES clean-libtool clean-local cscope cscopelist-am ctags \
-	ctags-am dist dist-all dist-bzip2 dist-gzip dist-hook \
-	dist-lzip dist-shar dist-tarZ dist-xz dist-zip dist-zstd \
-	distcheck distclean distclean-compile distclean-generic \
-	distclean-hdr distclean-libtool distclean-tags distcleancheck \
-	distdir distuninstallcheck dvi dvi-am html html-am info \
-	info-am install install-am install-autotraceincludeHEADERS \
-	install-binPROGRAMS install-binSCRIPTS install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-libLTLIBRARIES install-m4dataDATA \
-	install-man install-man1 install-pdf install-pdf-am \
-	install-pkgconfigDATA install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
+	clean-libLTLIBRARIES clean-libtool clean-local cscope \
+	cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
+	dist-gzip dist-hook dist-lzip dist-shar dist-tarZ dist-xz \
+	dist-zip dist-zstd distcheck distclean distclean-compile \
+	distclean-generic distclean-hdr distclean-libtool \
+	distclean-tags distcleancheck distdir distuninstallcheck dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-autotraceincludeHEADERS install-binPROGRAMS \
+	install-binSCRIPTS install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am \
+	install-libLTLIBRARIES install-m4dataDATA install-man \
+	install-man1 install-pdf install-pdf-am install-pkgconfigDATA \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags tags-am uninstall uninstall-am \
