@@ -18,15 +18,15 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "types.h"
-#include "spline.h"
-#include "color.h"
+#include "../../types.h"
+#include "../../spline.h"
+#include "../../color.h"
 #include "output-cgm.h"
-#include "lib/xstd/xstd.h"
-#include "autotrace.h"
+#include "../xstd/xstd.h"
+#include "../../autotrace.h"
 #include <string.h>
 
 #define CGM_BEGINMETAFILE        0x0020

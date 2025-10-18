@@ -1,12 +1,12 @@
 /* vector.c: vector/point operations. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "vector.h"
-#include "message.h"
-#include "epsilon-equal.h"
+#include "../../message.h"
+#include "../../epsilon-equal.h"
 #include <math.h>
 #include <errno.h>
 #include <assert.h>

@@ -25,13 +25,13 @@
 */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdio.h>
 #include <string.h>
-#include "spline.h"
-#include "lib/xstd/xstd.h"
+#include "../../spline.h"
+#include "../xstd/xstd.h"
 
 /* EMF record-number definitions */
 

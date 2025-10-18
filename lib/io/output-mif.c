@@ -18,15 +18,15 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "types.h"
-#include "spline.h"
-#include "color.h"
+#include "../../types.h"
+#include "../../spline.h"
+#include "../../color.h"
 #include "output-mif.h"
-#include "lib/xstd/xstd.h"
-#include "autotrace.h"
+#include "../xstd/xstd.h"
+#include "../../autotrace.h"
 #include <time.h>
 #include <math.h>
 #include <string.h>

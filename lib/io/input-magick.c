@@ -21,7 +21,7 @@
    it doesn't work with earlier versions */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdio.h>
@@ -30,7 +30,7 @@
 #include <sys/types.h> /* Needed for correct interpretation of magick/api.h */
 #include <magick/api.h>
 #include "input-magick.h"
-#include "bitmap.h"
+#include "../../bitmap.h"
 
 at_bitmap_type input_magick_reader(at_string filename,
 				   at_input_opts_type * opts,

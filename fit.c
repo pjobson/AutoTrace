@@ -29,7 +29,7 @@
 #include "message.h"
 #include "logreport.h"
 #include "spline.h"
-#include "vector.h"
+#include "lib/vector/vector.h"
 #include "curve.h"
 #include "pxl-outline.h"
 #include "epsilon-equal.h"

@@ -24,14 +24,14 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "types.h"
-#include "bitmap.h"
+#include "../../types.h"
+#include "../../bitmap.h"
 #include "input-pnm.h"
-#include "message.h"
-#include "lib/xstd/xstd.h"
+#include "../../message.h"
+#include "../xstd/xstd.h"
 
 #include <math.h>
 #include <ctype.h>

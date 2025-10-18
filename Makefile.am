@@ -68,7 +68,7 @@ libautotrace_la_SOURCES = \
 	spline.c \
 	curve.c \
 	epsilon-equal.c \
-	vector.c \
+	lib/vector/vector.c \
 	color.c \
 	autotrace.c \
 	lib/io/output.c \
@@ -87,7 +87,7 @@ libautotrace_la_SOURCES = \
 	bitmap.h \
 	spline.h \
 	curve.h \
-	vector.h \
+	lib/vector/vector.h \
 	color.h \
 	pxl-outline.h \
 	despeckle.c \

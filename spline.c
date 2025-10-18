@@ -7,7 +7,7 @@
 #include "message.h"
 #include "types.h"
 #include "spline.h"
-#include "vector.h"
+#include "lib/vector/vector.h"
 #include "lib/xstd/xstd.h"
 #include <assert.h>
 

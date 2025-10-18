@@ -18,10 +18,10 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "autotrace.h"
+#include "../../autotrace.h"
 #include "input.h"
 #include "input-pnm.h"
 #include "input-bmp.h"
@@ -35,9 +35,9 @@
 #include "input-magick.h"
 #endif /* HAVE_MAGICK */
 
-#include "lib/xstd/xstd.h"
-#include "filename.h"
-#include "strgicmp.h"
+#include "../xstd/xstd.h"
+#include "../../filename.h"
+#include "../../strgicmp.h"
 #include <string.h>
 
 struct input_format_entry {

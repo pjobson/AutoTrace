@@ -18,7 +18,7 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdio.h>
@@ -26,9 +26,9 @@
 #include <string.h>
 /* #include <unistd.h> */
 
-#include "bitmap.h"
-#include "message.h"
-#include "lib/xstd/xstd.h"
+#include "../../bitmap.h"
+#include "../../message.h"
+#include "../xstd/xstd.h"
 #include "input-bmp.h"
 
 /* TODO:

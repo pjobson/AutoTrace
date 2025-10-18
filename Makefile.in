@@ -185,7 +185,7 @@ am__libautotrace_la_SOURCES_DIST = \
 	spline.c \
 	curve.c \
 	epsilon-equal.c \
-	vector.c \
+	lib/vector/vector.c \
 	color.c \
 	autotrace.c \
 	lib/io/output.c \
@@ -204,7 +204,7 @@ am__libautotrace_la_SOURCES_DIST = \
 	bitmap.h \
 	spline.h \
 	curve.h \
-	vector.h \
+	lib/vector/vector.h \
 	color.h \
 	pxl-outline.h \
 	despeckle.c \
@@ -241,7 +241,7 @@ am_libautotrace_la_OBJECTS = \
 	spline.lo \
 	curve.lo \
 	epsilon-equal.lo \
-	vector.lo \
+	lib/vector/vector.lo \
 	color.lo \
 	autotrace.lo \
 	lib/io/output.lo \
@@ -550,7 +550,7 @@ libautotrace_la_SOURCES = \
 	spline.c \
 	curve.c \
 	epsilon-equal.c \
-	vector.c \
+	lib/vector/vector.c \
 	color.c \
 	autotrace.c \
 	lib/io/output.c \
@@ -569,7 +569,7 @@ libautotrace_la_SOURCES = \
 	bitmap.h \
 	spline.h \
 	curve.h \
-	vector.h \
+	lib/vector/vector.h \
 	color.h \
 	pxl-outline.h \
 	despeckle.c \

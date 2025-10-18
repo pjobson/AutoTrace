@@ -18,13 +18,13 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include "output.h"
-#include "lib/xstd/xstd.h"
-#include "filename.h"
-#include "strgicmp.h"
+#include "../xstd/xstd.h"
+#include "../../filename.h"
+#include "../../strgicmp.h"
 #include <string.h>
 
 #include "output-eps.h"

@@ -18,14 +18,14 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 #include <stdlib.h>
 #include <string.h>
 
-#include "spline.h"
-#include "color.h"
+#include "../../spline.h"
+#include "../../color.h"
 #include "output-dr2d.h"
 
 

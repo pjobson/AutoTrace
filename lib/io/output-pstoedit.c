@@ -18,7 +18,7 @@
    USA. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
 /* This module uses a temporary file to pass a file to libpstoedit
@@ -39,8 +39,8 @@
 
 #include "output-pstoedit.h"
 #include "output-p2e.h"
-#include "filename.h"
-#include "lib/xstd/xstd.h"
+#include "../../filename.h"
+#include "../xstd/xstd.h"
 
 #include <stdio.h>
 #include <stdlib.h>

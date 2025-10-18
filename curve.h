@@ -4,7 +4,7 @@
 #define CURVE_H
 
 #include "autotrace.h"
-#include "vector.h"
+#include "lib/vector/vector.h"
 
 
 /* We are simultaneously manipulating two different representations of
