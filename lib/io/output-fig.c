@@ -24,7 +24,7 @@
 #include "output-fig.h"
 #include "../xstd/xstd.h"
 #include "../../color.h"
-#include "../../spline.h"
+#include "../spline/spline.h"
 
 /* use FIG_X and FIG_Y to convert from local units (pixels) to FIG ones */
 /* assume 1 pixel is equal to 1/80 inches (old FIG unit) */

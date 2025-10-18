@@ -1,14 +1,14 @@
 /* spline.c: spline and spline list (represented as arrays) manipulation. */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "../../config.h"
 #endif /* Def: HAVE_CONFIG_H */
 
-#include "message.h"
-#include "types.h"
+#include "../../message.h"
+#include "../../types.h"
 #include "spline.h"
-#include "lib/vector/vector.h"
-#include "lib/xstd/xstd.h"
+#include "../vector/vector.h"
+#include "../xstd/xstd.h"
 #include <assert.h>
 
 /* Print a spline in human-readable form.  */

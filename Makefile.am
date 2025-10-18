@@ -65,7 +65,7 @@ libautotrace_la_SOURCES = \
 	$(input_src) $(output_src) \
 	fit.c \
 	bitmap.c \
-	spline.c \
+	lib/spline/spline.c \
 	curve.c \
 	epsilon-equal.c \
 	lib/vector/vector.c \
@@ -73,7 +73,7 @@ libautotrace_la_SOURCES = \
 	autotrace.c \
 	lib/io/output.c \
 	lib/io/input.c \
-	pxl-outline.c \
+	lib/pxl-outline/pxl-outline.c \
 	median.c \
 	lib/thin-image/thin-image.c \
 	logreport.c \
@@ -85,11 +85,11 @@ libautotrace_la_SOURCES = \
 	image-header.h \
 	fit.h \
 	bitmap.h \
-	spline.h \
+	lib/spline/spline.h \
 	curve.h \
 	lib/vector/vector.h \
 	color.h \
-	pxl-outline.h \
+	lib/pxl-outline/pxl-outline.h \
 	despeckle.c \
 	despeckle.h \
 	exception.c \

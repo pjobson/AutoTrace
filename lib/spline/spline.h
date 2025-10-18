@@ -5,8 +5,8 @@
 #define SPLINE_H
 
 #include <stdio.h>
-#include "autotrace.h"
-#include "lib/io/output.h"
+#include "../../autotrace.h"
+#include "../io/output.h"
 
 typedef at_polynomial_degree polynomial_degree;
 typedef at_spline_type spline_type;

@@ -182,7 +182,7 @@ am__libautotrace_la_SOURCES_DIST = \
 	lib/io/output-pstoedit.c \
 	fit.c \
 	bitmap.c \
-	spline.c \
+	lib/spline/spline.c \
 	curve.c \
 	epsilon-equal.c \
 	lib/vector/vector.c \
@@ -190,7 +190,7 @@ am__libautotrace_la_SOURCES_DIST = \
 	autotrace.c \
 	lib/io/output.c \
 	lib/io/input.c \
-	pxl-outline.c \
+	lib/pxl-outline/pxl-outline.c \
 	median.c \
 	lib/thin-image/thin-image.c \
 	logreport.c \
@@ -202,11 +202,11 @@ am__libautotrace_la_SOURCES_DIST = \
 	image-header.h \
 	fit.h \
 	bitmap.h \
-	spline.h \
+	lib/spline/spline.h \
 	curve.h \
 	lib/vector/vector.h \
 	color.h \
-	pxl-outline.h \
+	lib/pxl-outline/pxl-outline.h \
 	despeckle.c \
 	despeckle.h \
 	exception.c \
@@ -238,7 +238,7 @@ am_libautotrace_la_OBJECTS = \
 	$(am__objects_5) \
 	fit.lo \
 	bitmap.lo \
-	spline.lo \
+	lib/spline/spline.lo \
 	curve.lo \
 	epsilon-equal.lo \
 	lib/vector/vector.lo \
@@ -246,7 +246,7 @@ am_libautotrace_la_OBJECTS = \
 	autotrace.lo \
 	lib/io/output.lo \
 	lib/io/input.lo \
-	pxl-outline.lo \
+	lib/pxl-outline/pxl-outline.lo \
 	median.lo \
 	lib/thin-image/thin-image.lo \
 	logreport.lo \
@@ -547,7 +547,7 @@ libautotrace_la_SOURCES = \
 	$(input_src) $(output_src) \
 	fit.c \
 	bitmap.c \
-	spline.c \
+	lib/spline/spline.c \
 	curve.c \
 	epsilon-equal.c \
 	lib/vector/vector.c \
@@ -555,7 +555,7 @@ libautotrace_la_SOURCES = \
 	autotrace.c \
 	lib/io/output.c \
 	lib/io/input.c \
-	pxl-outline.c \
+	lib/pxl-outline/pxl-outline.c \
 	median.c \
 	lib/thin-image/thin-image.c \
 	logreport.c \
@@ -567,11 +567,11 @@ libautotrace_la_SOURCES = \
 	image-header.h \
 	fit.h \
 	bitmap.h \
-	spline.h \
+	lib/spline/spline.h \
 	curve.h \
 	lib/vector/vector.h \
 	color.h \
-	pxl-outline.h \
+	lib/pxl-outline/pxl-outline.h \
 	despeckle.c \
 	despeckle.h \
 	exception.c \

@@ -27,7 +27,7 @@
 
 #include "fit.h"
 #include "bitmap.h"
-#include "spline.h"
+#include "lib/spline/spline.h"
 
 #include "lib/io/input.h"
 

@@ -28,10 +28,10 @@
 #include "fit.h"
 #include "message.h"
 #include "logreport.h"
-#include "spline.h"
+#include "lib/spline/spline.h"
 #include "lib/vector/vector.h"
 #include "curve.h"
-#include "pxl-outline.h"
+#include "lib/pxl-outline/pxl-outline.h"
 #include "epsilon-equal.h"
 #include "lib/xstd/xstd.h"
 #include <math.h>

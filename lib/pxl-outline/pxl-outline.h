@@ -3,10 +3,10 @@
 #ifndef PXL_OUTLINE_H
 #define PXL_OUTLINE_H
 
-#include "autotrace.h"
-#include "exception.h"
-#include "bitmap.h"
-#include "color.h"
+#include "../../autotrace.h"
+#include "../../exception.h"
+#include "../../bitmap.h"
+#include "../../color.h"
 
 /* This is a list of contiguous points on the bitmap.  */
 typedef struct

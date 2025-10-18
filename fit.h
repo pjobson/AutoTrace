@@ -5,8 +5,8 @@
 
 #include "autotrace.h"
 #include "image-proc.h"
-#include "pxl-outline.h"
-#include "spline.h"
+#include "lib/pxl-outline/pxl-outline.h"
+#include "lib/spline/spline.h"
 #include "exception.h"
 
 /* See fit.c for descriptions of these variables, all of which can be
