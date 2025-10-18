@@ -32,8 +32,10 @@ This fork maintains the version history from the original AutoTrace project. For
 *   Removed libming Visual Studio projects
 *   Deleted Windows-specific documentation (README.MING)
 *   Removed shape_cubic.c.diff (libming-related)
+*   Fixed make clean and make distclean to not recurse into subdirectories (added -maxdepth 1 to find commands)
 *   Created .gitignore for version control
 *   Added modern README.md documenting the fork and build process
+*   Added support for out-of-tree builds
 
 ## 0.31.1 - 2002-11-09
 
