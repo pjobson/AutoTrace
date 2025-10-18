@@ -2,7 +2,7 @@ Summary: Program for converting bitmaps to vector graphics
 Name: autotrace
 Version: 0.31.1
 Release: 1
-Url: http://autotrace.sourceforge.net
+Url: https://github.com/pjobson/AutoTrace
 Source: %{name}-%{version}.tar.gz
 Copyright: GPL and LGPL
 Group: Applications/Graphics

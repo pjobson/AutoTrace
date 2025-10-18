@@ -2,7 +2,7 @@
 
 AutoTrace is a utility for converting bitmap images into vector graphics.
 
-This is a fork of the original AutoTrace 0.31.1 from [autotrace.sourceforge.net](https://autotrace.sourceforge.net/), updated for modern systems.
+This is a fork of the original AutoTrace 0.31.1 from autotrace.sourceforge.net, updated for modern systems.
 
 ## What's New in This Fork
 
@@ -146,9 +146,10 @@ The input and output functions can also be used under the GNU Lesser General Pub
 
 ## Original Project
 
-* Original website: [http://autotrace.sourceforge.net](http://autotrace.sourceforge.net)
+* Original website: http://autotrace.sourceforge.net
 * Original author: Martin Weber
 * Version: 0.31.1
+* This fork: https://github.com/pjobson/AutoTrace
 
 ## Contributing
 

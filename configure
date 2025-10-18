@@ -7259,7 +7259,7 @@ LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 
 
 
-AUTOTRACE_WEB=http://autotrace.sourceforge.net
+AUTOTRACE_WEB=https://github.com/pjobson/AutoTrace
 cat >>confdefs.h <<_ACEOF
 #define AUTOTRACE_WEB "$AUTOTRACE_WEB"
 _ACEOF
