@@ -30,8 +30,7 @@
 #include "input-png.h"
 #endif /* HAVE_LIBPNG */
 #if HAVE_MAGICK
-#include <sys/types.h> /* Needed for correct interpretation of magick/api.h */
-#include <magick/api.h>
+#include <MagickWand/MagickWand.h>
 #include "input-magick.h"
 #endif /* HAVE_MAGICK */
 
@@ -99,45 +98,21 @@ at_input_list_new (void)
   int count, count_int = 0;
   int i;
 #if HAVE_MAGICK
-  ExceptionInfo exception;
-#if (MagickLibVersion < 0x0540)
-  MagickInfo *info, *magickinfo;
-#else
-  const MagickInfo *info, *magickinfo;
-#endif
+  char **formats;
+  size_t num_formats;
+  size_t j;
 #endif
 
   struct input_format_entry * entry;
   for (entry = input_formats; entry->name; entry++)
     count_int++;
-#if HAVE_MAGICK
-#if (MagickLibVersion < 0x0538)
-  MagickIncarnate("");
-#else
-  InitializeMagick("");
-#endif
-  GetExceptionInfo(&exception);
-#if (MagickLibVersion < 0x0534)
-  magickinfo = info = GetMagickInfo(NULL);
-#else
-  info = GetMagickInfo(NULL, &exception);
-  if (info && !info->next)
-    info = GetMagickInfo("*", &exception);
-  magickinfo = info;
-#endif
-#endif
+
   count = count_int;
+
 #if HAVE_MAGICK
-  while (info)
-    {
-#if (MagickLibVersion < 0x0537)
-      if (info->tag && info->description)
-#else
-      if (info->name && info->description)
-#endif
-        count ++;
-      info = info->next ;
-    }
+  MagickWandGenesis();
+  formats = MagickQueryFormats("*", &num_formats);
+  count += num_formats;
 #endif
 
   XMALLOC(list, sizeof(char*)*((2*count)+1));
@@ -150,27 +125,16 @@ at_input_list_new (void)
     }
 
 #if HAVE_MAGICK
-  info = magickinfo;
-
-  while (info)
+  for (j = 0; j < num_formats; j++)
     {
-#if (MagickLibVersion < 0x0537)
-      if (info->tag && info->description)
-#else
-      if (info->name && info->description)
-#endif
-        {
-#if (MagickLibVersion < 0x0537)
-          list[2*i] = info->tag;
-#else
-          list[2*i] = info->name;
-#endif
-          list[2*i+1] = info->description;
-          i++;
-        }
-      info = info->next ;
+      list[2*i] = formats[j];
+      list[2*i+1] = formats[j]; /* Use format name as description */
+      i++;
     }
+  MagickRelinquishMemory(formats);
+  MagickWandTerminus();
 #endif
+
   list[2*i] = NULL;
   return list;
 }
@@ -189,12 +153,9 @@ at_input_shortlist (void)
   size_t length = 0;
   int i;
 #if HAVE_MAGICK
-  ExceptionInfo exception;
-#if (MagickLibVersion < 0x0540)
-  MagickInfo *info, *magickinfo;
-#else
-  const MagickInfo *info, *magickinfo;
-#endif
+  char **formats;
+  size_t num_formats;
+  size_t j;
 #endif
 
   struct input_format_entry * entry;
@@ -205,34 +166,11 @@ at_input_shortlist (void)
   }
 
 #if HAVE_MAGICK
-#if (MagickLibVersion < 0x0538)
-  MagickIncarnate("");
-#else
-  InitializeMagick("");
-#endif
-  GetExceptionInfo(&exception);
-#if (MagickLibVersion < 0x0534)
-  magickinfo = info = GetMagickInfo(NULL);
-#else
-  magickinfo = info = GetMagickInfo(NULL, &exception);
-#endif
-#endif
-#if HAVE_MAGICK
-  while (info)
+  MagickWandGenesis();
+  formats = MagickQueryFormats("*", &num_formats);
+  for (j = 0; j < num_formats; j++)
     {
-#if (MagickLibVersion < 0x0537)
-      if (info->tag && info->description)
-#else
-      if (info->name && info->description)
-#endif
-        {
-#if (MagickLibVersion < 0x0537)
-          length += strlen (info->tag) + 2;
-#else
-          length += strlen (info->name) + 2;
-#endif
-        }
-      info = info->next ;
+      length += strlen (formats[j]) + 2;
     }
 #endif
 
@@ -245,26 +183,17 @@ at_input_shortlist (void)
       strcat (list, ", ");
       strcat (list, (char *) entry[i].name);
     }
+
 #if HAVE_MAGICK
-  info = magickinfo;
-  while (info)
+  for (j = 0; j < num_formats; j++)
     {
-#if (MagickLibVersion < 0x0537)
-      if (info->tag && info->description)
-#else
-      if (info->name && info->description)
-#endif
-        {
-          strcat (list, ", ");
-#if (MagickLibVersion < 0x0537)
-          strcat (list, info->tag);
-#else
-          strcat (list, info->name);
-#endif
-        }
-      info = info->next ;
+      strcat (list, ", ");
+      strcat (list, formats[j]);
     }
+  MagickRelinquishMemory(formats);
+  MagickWandTerminus();
 #endif
+
   strcat (list, " or ");
   strcat (list, (char *) entry[i].name);
   return list;

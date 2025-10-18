@@ -48,115 +48,77 @@ dnl
 dnl ImageMagick
 dnl
 HAVE_MAGICK=no
-AC_ARG_WITH(magick, 
-[  --with-magick  compile with maigck(default)
-  --without-magick  compile without maigck],,with_magick=yes)
+AC_ARG_WITH(magick,
+[  --with-magick  compile with ImageMagick (default)
+  --without-magick  compile without ImageMagick],,with_magick=yes)
 
 if test $with_magick = yes ; then
-	AC_CHECK_PROG(MAGICK_CONFIG, Magick-config, Magick-config, "")
-	if test "x$MAGICK_CONFIG" = "xMagick-config" ; then
-		CPPFLAGS_BACKUP="$CPPFLAGS"
-		CPPFLAGS=`Magick-config --cppflags`
-		AC_CHECK_HEADER(magick/api.h,
-				magick_header_found=yes,
-				magick_header_found=no)
-		MAGICK_CFLAGS=${CPPFLAGS}
-		CPPFLAGS=${CPPFLAGS_BACKUP}
-		if test "x${magick_header_found}" = xyes ; then
-			MAGICK_LDFLAGS="`Magick-config --ldflags` `Magick-config --libs`"
-			dnl
-			dnl Checking version
-			dnl
-			AC_MSG_CHECKING([ImageMagick - version >= 5.2.1])
-			dnl Get version and split it into MAJOR, MINOR and MICRO
-			MAGICK_VERSION=`Magick-config --version`
-			changequote(,)dnl
-			MAGICK_MAJOR_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^\([0-9]*\).[0-9]*.[0-9]*$/\1/'`
-			MAGICK_MINOR_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^[0-9]*.\([0-9]*\).[0-9]*$/\1/'`
-			MAGICK_MICRO_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^[0-9]*.[0-9]*.\([0-9]*\)$/\1/'`
-			changequote([,])dnl
-			MAGICK_MAJOR_VERSION_CHECK=`expr $MAGICK_MAJOR_VERSION \>= 5`
-			MAGICK_MINOR_VERSION_CHECK=`expr $MAGICK_MINOR_VERSION \>= 2`
-			dnl I don't consider ImageMagick 6.x.
-			if test "$MAGICK_VERSION" = "5.2.0" \
-			   || test "$MAGICK_MAJOR_VERSION_CHECK" = 0 \
-			   || test "$MAGICK_MINOR_VERSION_CHECK" = 0 ; then
-			   AC_MSG_RESULT(no($MAGICK_VERSION))
-		   	   AC_MSG_WARN([*** Version 5.2.1 or higher is required.             ***])
-			   AC_MSG_WARN([*** ImageMagick input handler is disabled.           ***])
-			else
- 		   		AC_MSG_RESULT(yes($MAGICK_VERSION))
-				AC_SUBST(MAGICK_CFLAGS)
-				AC_SUBST(MAGICK_LDFLAGS)
+	dnl Check for pkg-config first
+	AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
+	if test "x$PKG_CONFIG" != "xno" ; then
+		dnl Try MagickWand (ImageMagick 6+)
+		if $PKG_CONFIG --exists MagickWand ; then
+			AC_MSG_CHECKING([for ImageMagick 6+ via pkg-config])
+			MAGICK_VERSION=`$PKG_CONFIG --modversion MagickWand`
+			MAGICK_CFLAGS=`$PKG_CONFIG --cflags MagickWand`
+			MAGICK_LDFLAGS=`$PKG_CONFIG --libs MagickWand`
+			AC_MSG_RESULT([yes ($MAGICK_VERSION)])
+			HAVE_MAGICK=yes
+			AC_DEFINE(HAVE_MAGICK)
+			AC_SUBST(MAGICK_CFLAGS)
+			AC_SUBST(MAGICK_LDFLAGS)
+		dnl Try MagickCore (ImageMagick 7+)
+		elif $PKG_CONFIG --exists MagickCore ; then
+			AC_MSG_CHECKING([for ImageMagick 7+ via pkg-config])
+			MAGICK_VERSION=`$PKG_CONFIG --modversion MagickCore`
+			MAGICK_CFLAGS=`$PKG_CONFIG --cflags MagickCore`
+			MAGICK_LDFLAGS=`$PKG_CONFIG --libs MagickCore`
+			AC_MSG_RESULT([yes ($MAGICK_VERSION)])
+			HAVE_MAGICK=yes
+			AC_DEFINE(HAVE_MAGICK)
+			AC_SUBST(MAGICK_CFLAGS)
+			AC_SUBST(MAGICK_LDFLAGS)
+		else
+			AC_MSG_WARN([*** pkg-config found but MagickWand/MagickCore not found ***])
+			AC_MSG_WARN([*** ImageMagick input handler is disabled.                ***])
+		fi
+	fi
+
+	dnl Fallback to *-config if pkg-config fails
+	if test $HAVE_MAGICK = no ; then
+		AC_CHECK_PROG(MAGICK_CONFIG, MagickWand-config, MagickWand-config, "")
+		if test "x$MAGICK_CONFIG" != "x" ; then
+			AC_MSG_CHECKING([for ImageMagick via MagickWand-config])
+			MAGICK_VERSION=`$MAGICK_CONFIG --version`
+			MAGICK_CFLAGS=`$MAGICK_CONFIG --cflags`
+			MAGICK_LDFLAGS=`$MAGICK_CONFIG --ldflags`
+			MAGICK_LDFLAGS="$MAGICK_LDFLAGS `$MAGICK_CONFIG --libs`"
+			AC_MSG_RESULT([yes ($MAGICK_VERSION)])
+			HAVE_MAGICK=yes
+			AC_DEFINE(HAVE_MAGICK)
+			AC_SUBST(MAGICK_CFLAGS)
+			AC_SUBST(MAGICK_LDFLAGS)
+		else
+			AC_CHECK_PROG(MAGICK_CONFIG, MagickCore-config, MagickCore-config, "")
+			if test "x$MAGICK_CONFIG" != "x" ; then
+				AC_MSG_CHECKING([for ImageMagick via MagickCore-config])
+				MAGICK_VERSION=`$MAGICK_CONFIG --version`
+				MAGICK_CFLAGS=`$MAGICK_CONFIG --cflags`
+				MAGICK_LDFLAGS=`$MAGICK_CONFIG --ldflags`
+				MAGICK_LDFLAGS="$MAGICK_LDFLAGS `$MAGICK_CONFIG --libs`"
+				AC_MSG_RESULT([yes ($MAGICK_VERSION)])
 				HAVE_MAGICK=yes
 				AC_DEFINE(HAVE_MAGICK)
+				AC_SUBST(MAGICK_CFLAGS)
+				AC_SUBST(MAGICK_LDFLAGS)
+			else
+				AC_MSG_WARN([*** ImageMagick not found.                          ***])
+				AC_MSG_WARN([*** ImageMagick input handler is disabled.          ***])
 			fi
-		else
-			AC_MSG_WARN([*** Magick-config is found but magick/api.h is not found in $MAGICK_CFLAGS ***])
- 			AC_MSG_WARN([*** Check Magick-config.                                                   ***])
-			AC_MSG_WARN([*** ImageMagick input handler is disabled.                                 ***])
 		fi
-	else
-		AC_MSG_WARN([*** Magick-config is not found.                      ***])
-		AC_MSG_WARN([*** ImageMagick input handler is disabled.           ***])		
 	fi
 fi
 AM_CONDITIONAL(HAVE_MAGICK, test $HAVE_MAGICK = yes)
-
-dnl
-dnl libMagick.la sanity check
-dnl 
-dnl It seems that libMagick.la in RedHat 7.2 is broken.
-dnl libMagick.la refers /usr/lib/libxml2.la. However, 
-dnl /usr/lib/libxml2.la is not existed. Therefore linking
-dnl against libMagick.la is failed.
-dnl
-libMagick_la_path=
-libMagick_la_sanity=yes
-
-dnl Stage one: finding libMagick.la
-if test $HAVE_MAGICK = yes && test $enable_shared = yes; then
-   for f in $MAGICK_LDFLAGS; do
-      case ${f} in
-	   -L*)
-	       f=`echo $f | sed -e 's/-L//'`
-	       if test -f ${f}/libMagick.la; then
-		  libMagick_la_path="${f}/libMagick.la"
-	       fi;;
-      esac
-   done
-fi
-
-dnl Stage two: Check internal of libMagick.la
-if test -n "${libMagick_la_path}"; then
-   AC_MSG_CHECKING([Sanity of libMagick.la])
-   dnl libdir is defined in libMagick.al.
-   dnl Don't use the value.
-   libdir_backup=${libdir}
-    . ${libMagick_la_path}
-   libdir=${libdir_backup}
-    for elt in ${dependency_libs}; do
-	case ${elt} in
-	    *.la )
-		if test ! -f ${elt}; then
-		   if test ${libMagick_la_sanity} = yes; then
-		      AC_MSG_RESULT([broken])
-		      libMagick_la_sanity=no
-		   fi
-		   AC_MSG_WARN([Cannot find $elt refereed in ${libMagick_la_path}])
-		fi;;
-	esac
-    done
-   if test ${libMagick_la_sanity} = yes; then
-      AC_MSG_RESULT([ok])
-   else
-      AC_MSG_WARN([*** Building will be failed at link time.])
-      AC_MSG_WARN([*** To avoid this failure, don't link libMagick.so: Run ./configure --without-magick])
-   fi
-fi
 
 dnl
 dnl LIBPNG

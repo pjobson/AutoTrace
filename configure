@@ -665,9 +665,10 @@ HAVE_LIBPNG_TRUE
 LIBPNG_LDFLAGS
 HAVE_MAGICK_FALSE
 HAVE_MAGICK_TRUE
+MAGICK_CONFIG
 MAGICK_LDFLAGS
 MAGICK_CFLAGS
-MAGICK_CONFIG
+PKG_CONFIG
 CPP
 MAINT
 MAINTAINER_MODE_FALSE
@@ -1470,8 +1471,8 @@ Optional Packages:
   --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
   --with-sysroot[=DIR]    Search for dependent libraries within DIR (or the
                           compiler's sysroot if not specified).
-  --with-magick  compile with maigck(default)
-  --without-magick  compile without maigck
+  --with-magick  compile with ImageMagick (default)
+  --without-magick  compile without ImageMagick
 
 Some influential environment variables:
   CC          C compiler command
@@ -12983,8 +12984,90 @@ fi
 
 
 if test $with_magick = yes ; then
-	# Extract the first word of "Magick-config", so it can be a program name with args.
-set dummy Magick-config; ac_word=$2
+		# Extract the first word of "pkg-config", so it can be a program name with args.
+set dummy pkg-config; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_PKG_CONFIG+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $PKG_CONFIG in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_PKG_CONFIG="$PKG_CONFIG" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_PKG_CONFIG="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_PKG_CONFIG" && ac_cv_path_PKG_CONFIG="no"
+  ;;
+esac
+fi
+PKG_CONFIG=$ac_cv_path_PKG_CONFIG
+if test -n "$PKG_CONFIG"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $PKG_CONFIG" >&5
+printf "%s\n" "$PKG_CONFIG" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
+
+
+	if test "x$PKG_CONFIG" != "xno" ; then
+				if $PKG_CONFIG --exists MagickWand ; then
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ImageMagick 6+ via pkg-config" >&5
+printf %s "checking for ImageMagick 6+ via pkg-config... " >&6; }
+			MAGICK_VERSION=`$PKG_CONFIG --modversion MagickWand`
+			MAGICK_CFLAGS=`$PKG_CONFIG --cflags MagickWand`
+			MAGICK_LDFLAGS=`$PKG_CONFIG --libs MagickWand`
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes ($MAGICK_VERSION)" >&5
+printf "%s\n" "yes ($MAGICK_VERSION)" >&6; }
+			HAVE_MAGICK=yes
+			printf "%s\n" "#define HAVE_MAGICK 1" >>confdefs.h
+
+
+
+				elif $PKG_CONFIG --exists MagickCore ; then
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ImageMagick 7+ via pkg-config" >&5
+printf %s "checking for ImageMagick 7+ via pkg-config... " >&6; }
+			MAGICK_VERSION=`$PKG_CONFIG --modversion MagickCore`
+			MAGICK_CFLAGS=`$PKG_CONFIG --cflags MagickCore`
+			MAGICK_LDFLAGS=`$PKG_CONFIG --libs MagickCore`
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes ($MAGICK_VERSION)" >&5
+printf "%s\n" "yes ($MAGICK_VERSION)" >&6; }
+			HAVE_MAGICK=yes
+			printf "%s\n" "#define HAVE_MAGICK 1" >>confdefs.h
+
+
+
+		else
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** pkg-config found but MagickWand/MagickCore not found ***" >&5
+printf "%s\n" "$as_me: WARNING: *** pkg-config found but MagickWand/MagickCore not found ***" >&2;}
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick input handler is disabled.                ***" >&5
+printf "%s\n" "$as_me: WARNING: *** ImageMagick input handler is disabled.                ***" >&2;}
+		fi
+	fi
+
+		if test $HAVE_MAGICK = no ; then
+		# Extract the first word of "MagickWand-config", so it can be a program name with args.
+set dummy MagickWand-config; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
 printf %s "checking for $ac_word... " >&6; }
 if test ${ac_cv_prog_MAGICK_CONFIG+y}
@@ -13005,7 +13088,7 @@ do
   esac
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
-    ac_cv_prog_MAGICK_CONFIG="Magick-config"
+    ac_cv_prog_MAGICK_CONFIG="MagickWand-config"
     printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
     break 2
   fi
@@ -13026,63 +13109,85 @@ printf "%s\n" "no" >&6; }
 fi
 
 
-	if test "x$MAGICK_CONFIG" = "xMagick-config" ; then
-		CPPFLAGS_BACKUP="$CPPFLAGS"
-		CPPFLAGS=`Magick-config --cppflags`
-		ac_fn_c_check_header_compile "$LINENO" "magick/api.h" "ac_cv_header_magick_api_h" "$ac_includes_default"
-if test "x$ac_cv_header_magick_api_h" = xyes
+		if test "x$MAGICK_CONFIG" != "x" ; then
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ImageMagick via MagickWand-config" >&5
+printf %s "checking for ImageMagick via MagickWand-config... " >&6; }
+			MAGICK_VERSION=`$MAGICK_CONFIG --version`
+			MAGICK_CFLAGS=`$MAGICK_CONFIG --cflags`
+			MAGICK_LDFLAGS=`$MAGICK_CONFIG --ldflags`
+			MAGICK_LDFLAGS="$MAGICK_LDFLAGS `$MAGICK_CONFIG --libs`"
+			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes ($MAGICK_VERSION)" >&5
+printf "%s\n" "yes ($MAGICK_VERSION)" >&6; }
+			HAVE_MAGICK=yes
+			printf "%s\n" "#define HAVE_MAGICK 1" >>confdefs.h
+
+
+
+		else
+			# Extract the first word of "MagickCore-config", so it can be a program name with args.
+set dummy MagickCore-config; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_prog_MAGICK_CONFIG+y}
 then :
-  magick_header_found=yes
+  printf %s "(cached) " >&6
 else $as_nop
-  magick_header_found=no
+  if test -n "$MAGICK_CONFIG"; then
+  ac_cv_prog_MAGICK_CONFIG="$MAGICK_CONFIG" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_prog_MAGICK_CONFIG="MagickCore-config"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_prog_MAGICK_CONFIG" && ac_cv_prog_MAGICK_CONFIG=""""
+fi
+fi
+MAGICK_CONFIG=$ac_cv_prog_MAGICK_CONFIG
+if test -n "$MAGICK_CONFIG"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $MAGICK_CONFIG" >&5
+printf "%s\n" "$MAGICK_CONFIG" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
 fi
 
-		MAGICK_CFLAGS=${CPPFLAGS}
-		CPPFLAGS=${CPPFLAGS_BACKUP}
-		if test "x${magick_header_found}" = xyes ; then
-			MAGICK_LDFLAGS="`Magick-config --ldflags` `Magick-config --libs`"
-												{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking ImageMagick - version >= 5.2.1" >&5
-printf %s "checking ImageMagick - version >= 5.2.1... " >&6; }
-						MAGICK_VERSION=`Magick-config --version`
-						MAGICK_MAJOR_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^\([0-9]*\).[0-9]*.[0-9]*$/\1/'`
-			MAGICK_MINOR_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^[0-9]*.\([0-9]*\).[0-9]*$/\1/'`
-			MAGICK_MICRO_VERSION=`echo $MAGICK_VERSION \
-			| sed -e 's/^[0-9]*.[0-9]*.\([0-9]*\)$/\1/'`
-						MAGICK_MAJOR_VERSION_CHECK=`expr $MAGICK_MAJOR_VERSION \>= 5`
-			MAGICK_MINOR_VERSION_CHECK=`expr $MAGICK_MINOR_VERSION \>= 2`
-						if test "$MAGICK_VERSION" = "5.2.0" \
-			   || test "$MAGICK_MAJOR_VERSION_CHECK" = 0 \
-			   || test "$MAGICK_MINOR_VERSION_CHECK" = 0 ; then
-			   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no($MAGICK_VERSION)" >&5
-printf "%s\n" "no($MAGICK_VERSION)" >&6; }
-		   	   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** Version 5.2.1 or higher is required.             ***" >&5
-printf "%s\n" "$as_me: WARNING: *** Version 5.2.1 or higher is required.             ***" >&2;}
-			   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick input handler is disabled.           ***" >&5
-printf "%s\n" "$as_me: WARNING: *** ImageMagick input handler is disabled.           ***" >&2;}
-			else
- 		   		{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes($MAGICK_VERSION)" >&5
-printf "%s\n" "yes($MAGICK_VERSION)" >&6; }
 
-
+			if test "x$MAGICK_CONFIG" != "x" ; then
+				{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for ImageMagick via MagickCore-config" >&5
+printf %s "checking for ImageMagick via MagickCore-config... " >&6; }
+				MAGICK_VERSION=`$MAGICK_CONFIG --version`
+				MAGICK_CFLAGS=`$MAGICK_CONFIG --cflags`
+				MAGICK_LDFLAGS=`$MAGICK_CONFIG --ldflags`
+				MAGICK_LDFLAGS="$MAGICK_LDFLAGS `$MAGICK_CONFIG --libs`"
+				{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes ($MAGICK_VERSION)" >&5
+printf "%s\n" "yes ($MAGICK_VERSION)" >&6; }
 				HAVE_MAGICK=yes
 				printf "%s\n" "#define HAVE_MAGICK 1" >>confdefs.h
 
+
+
+			else
+				{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick not found.                          ***" >&5
+printf "%s\n" "$as_me: WARNING: *** ImageMagick not found.                          ***" >&2;}
+				{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick input handler is disabled.          ***" >&5
+printf "%s\n" "$as_me: WARNING: *** ImageMagick input handler is disabled.          ***" >&2;}
 			fi
-		else
-			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** Magick-config is found but magick/api.h is not found in $MAGICK_CFLAGS ***" >&5
-printf "%s\n" "$as_me: WARNING: *** Magick-config is found but magick/api.h is not found in $MAGICK_CFLAGS ***" >&2;}
- 			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** Check Magick-config.                                                   ***" >&5
-printf "%s\n" "$as_me: WARNING: *** Check Magick-config.                                                   ***" >&2;}
-			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick input handler is disabled.                                 ***" >&5
-printf "%s\n" "$as_me: WARNING: *** ImageMagick input handler is disabled.                                 ***" >&2;}
 		fi
-	else
-		{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** Magick-config is not found.                      ***" >&5
-printf "%s\n" "$as_me: WARNING: *** Magick-config is not found.                      ***" >&2;}
-		{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** ImageMagick input handler is disabled.           ***" >&5
-printf "%s\n" "$as_me: WARNING: *** ImageMagick input handler is disabled.           ***" >&2;}
 	fi
 fi
  if test $HAVE_MAGICK = yes; then
@@ -13093,52 +13198,6 @@ else
   HAVE_MAGICK_FALSE=
 fi
 
-
-libMagick_la_path=
-libMagick_la_sanity=yes
-
-if test $HAVE_MAGICK = yes && test $enable_shared = yes; then
-   for f in $MAGICK_LDFLAGS; do
-      case ${f} in
-	   -L*)
-	       f=`echo $f | sed -e 's/-L//'`
-	       if test -f ${f}/libMagick.la; then
-		  libMagick_la_path="${f}/libMagick.la"
-	       fi;;
-      esac
-   done
-fi
-
-if test -n "${libMagick_la_path}"; then
-   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking Sanity of libMagick.la" >&5
-printf %s "checking Sanity of libMagick.la... " >&6; }
-         libdir_backup=${libdir}
-    . ${libMagick_la_path}
-   libdir=${libdir_backup}
-    for elt in ${dependency_libs}; do
-	case ${elt} in
-	    *.la )
-		if test ! -f ${elt}; then
-		   if test ${libMagick_la_sanity} = yes; then
-		      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: broken" >&5
-printf "%s\n" "broken" >&6; }
-		      libMagick_la_sanity=no
-		   fi
-		   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: Cannot find $elt refereed in ${libMagick_la_path}" >&5
-printf "%s\n" "$as_me: WARNING: Cannot find $elt refereed in ${libMagick_la_path}" >&2;}
-		fi;;
-	esac
-    done
-   if test ${libMagick_la_sanity} = yes; then
-      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: ok" >&5
-printf "%s\n" "ok" >&6; }
-   else
-      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** Building will be failed at link time." >&5
-printf "%s\n" "$as_me: WARNING: *** Building will be failed at link time." >&2;}
-      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: WARNING: *** To avoid this failure, don't link libMagick.so: Run ./configure --without-magick" >&5
-printf "%s\n" "$as_me: WARNING: *** To avoid this failure, don't link libMagick.so: Run ./configure --without-magick" >&2;}
-   fi
-fi
 
 
 HAVE_ZLIB=no

@@ -1,6 +1,7 @@
-/* input-magick.c: import files via image magick
+/* input-magick.c: import files via ImageMagick
 
    Copyright (C) 1999, 2000, 2001 Martin Weber.
+   Copyright (C) 2025 Paul Jobson (updated for ImageMagick 6+/7+)
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public License
@@ -17,8 +18,7 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
    USA. */
 
-/* This code was tested with ImageMagick 5.2.1-5.5.2
-   it doesn't work with earlier versions */
+/* This code works with ImageMagick 6+ and 7+ using the MagickWand API */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -27,72 +27,104 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h> /* Needed for correct interpretation of magick/api.h */
-#include <magick/api.h>
+#include <MagickWand/MagickWand.h>
 #include "input-magick.h"
 #include "../bitmap/bitmap.h"
 
 at_bitmap_type input_magick_reader(at_string filename,
 				   at_input_opts_type * opts,
-				   at_msg_func msg_func, 
+				   at_msg_func msg_func,
 				   at_address msg_data)
 {
-  Image *image = NULL;
-  ImageInfo *image_info;
-  ImageType image_type;
-  unsigned int i,j,point,np,runcount;
+  MagickWand *wand = NULL;
+  MagickBooleanType status;
+  size_t width, height;
+  size_t x, y;
+  unsigned int np;
+  size_t point;
   at_bitmap_type bitmap;
-  PixelPacket p;
-  PixelPacket *pixel=&p;
-  ExceptionInfo exception;
-#if (MagickLibVersion < 0x0538)
-  MagickIncarnate("");
-#else
-  InitializeMagick("");
-#endif
-  GetExceptionInfo(&exception);
-  image_info=CloneImageInfo((ImageInfo *) NULL);
-  (void) strcpy(image_info->filename,filename);
-  image_info->antialias = 0;
+  unsigned char *pixels = NULL;
+  ImageType image_type;
+  char *description;
 
-  image=ReadImage(image_info,&exception);
-  if (image == (Image *) NULL) {
-#if (MagickLibVersion <= 0x0525)
-    /* MagickError(exception.severity,exception.message,exception.qualifier); */
-    if (msg_func)
-      msg_func (exception.qualifier, AT_MSG_FATAL, msg_data);
+  /* Initialize MagickWand environment */
+  MagickWandGenesis();
+
+  /* Create a wand */
+  wand = NewMagickWand();
+
+  /* Read the image */
+  status = MagickReadImage(wand, filename);
+  if (status == MagickFalse) {
+    if (msg_func) {
+      description = MagickGetException(wand, NULL);
+      msg_func(description, AT_MSG_FATAL, msg_data);
+      MagickRelinquishMemory(description);
+    }
     goto cleanup;
-#else
-    /* MagickError(exception.severity,exception.reason,exception.description); */
-    if (msg_func)
-      msg_func (exception.reason, AT_MSG_FATAL, msg_data);
-    goto cleanup;
-#endif
   }
-#if (MagickLibVersion < 0x0540)
-  image_type=GetImageType(image);
-#else
-  image_type=GetImageType(image, &exception);
-#endif
-  if(image_type == BilevelType || image_type == GrayscaleType)
-    np=1;
-  else
-    np=3;
 
-  bitmap = at_bitmap_init(NULL, image->columns, image->rows, np);
+  /* Get image dimensions */
+  width = MagickGetImageWidth(wand);
+  height = MagickGetImageHeight(wand);
 
-  for(j=0,runcount=0,point=0;j<image->rows;j++)
-    for(i=0;i<image->columns;i++) {
-      p=GetOnePixel(image,i,j);
-      AT_BITMAP_BITS(bitmap)[point++]=pixel->red; /* if gray: red=green=blue */
-      if(np==3) {
-        AT_BITMAP_BITS(bitmap)[point++]=pixel->green;
-        AT_BITMAP_BITS(bitmap)[point++]=pixel->blue;
+  /* Determine if image is grayscale or color */
+  image_type = MagickGetImageType(wand);
+  if (image_type == BilevelType || image_type == GrayscaleType) {
+    np = 1;
+  } else {
+    np = 3;
+  }
+
+  /* Initialize bitmap */
+  bitmap = at_bitmap_init(NULL, width, height, np);
+
+  /* Allocate temporary pixel buffer */
+  pixels = (unsigned char *)malloc(width * height * 3);
+  if (!pixels) {
+    if (msg_func) {
+      msg_func("Failed to allocate pixel buffer", AT_MSG_FATAL, msg_data);
+    }
+    goto cleanup;
+  }
+
+  /* Export image pixels in RGB format */
+  status = MagickExportImagePixels(wand, 0, 0, width, height, "RGB", CharPixel, pixels);
+  if (status == MagickFalse) {
+    if (msg_func) {
+      description = MagickGetException(wand, NULL);
+      msg_func(description, AT_MSG_FATAL, msg_data);
+      MagickRelinquishMemory(description);
+    }
+    free(pixels);
+    goto cleanup;
+  }
+
+  /* Copy pixels to bitmap */
+  point = 0;
+  for (y = 0; y < height; y++) {
+    for (x = 0; x < width; x++) {
+      size_t pixel_index = (y * width + x) * 3;
+
+      /* Red channel (or gray value) */
+      AT_BITMAP_BITS(bitmap)[point++] = pixels[pixel_index];
+
+      /* Green and blue channels for color images */
+      if (np == 3) {
+        AT_BITMAP_BITS(bitmap)[point++] = pixels[pixel_index + 1];
+        AT_BITMAP_BITS(bitmap)[point++] = pixels[pixel_index + 2];
       }
     }
+  }
 
-  DestroyImage(image);
- cleanup:
-  DestroyImageInfo(image_info);  
-  return(bitmap);
+  free(pixels);
+
+cleanup:
+  /* Clean up */
+  if (wand) {
+    DestroyMagickWand(wand);
+  }
+  MagickWandTerminus();
+
+  return bitmap;
 }
